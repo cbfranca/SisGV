@@ -8,7 +8,7 @@
   </div>
   <div class="field">
     <%= f.label :nascimento %><br />
-    <%= f.date_select :nascimento %>
+    <%= f.date_select :nascimento,:start_year => 1950, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :cod_escolaridade %><br />
@@ -52,7 +52,7 @@
   </div>
   <div class="field">
     <%= f.label :primeiro_contato %><br />
-    <%= f.date_select :primeiro_contato  ,:start_year => 1995%>
+    <%= f.date_select :primeiro_contato  ,:start_year => 1995, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :ativo %><br />
