@@ -58,5 +58,8 @@ module SisGV
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #Aplicando pt-BR
+    config.i18n.default_locale = "pt-BR"
   end
 end

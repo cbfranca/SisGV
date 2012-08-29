@@ -1,0 +1,64 @@
+<%= form_for(@vocacionado) do |f| %>
+
+<%= render "shared/error_messages", :target => @vocacionado %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome%>
+  </div>
+  <div class="field">
+    <%= f.label :nascimento %><br />
+    <%= f.date_select :nascimento %>
+  </div>
+  <div class="field">
+    <%= f.label :cod_escolaridade %><br />
+    <%= f.number_field :cod_escolaridade %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br />
+    <%= f.text_field :endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :bairro %><br />
+    <%= f.text_field :bairro %>
+  </div>
+  <div class="field">
+    <%= f.label :cep %><br />
+    <%= f.text_field :cep %>
+  </div>
+  <div class="field">
+    <%= f.label :complemento_endereco %><br />
+    <%= f.text_field :complemento_endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :cod_estado %><br />
+    <%= f.number_field :cod_estado %>
+  </div>
+  <div class="field">
+    <%= f.label :cidade %><br />
+    <%= f.text_field :cidade %>
+  </div>
+  <div class="field">
+    <%= f.label :telefone_residencial %><br />
+    <%= f.text_field :telefone_residencial %>
+  </div>
+  <div class="field">
+    <%= f.label :celular %><br />
+    <%= f.text_field :celular %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :primeiro_contato %><br />
+    <%= f.date_select :primeiro_contato  ,:start_year => 1995%>
+  </div>
+  <div class="field">
+    <%= f.label :ativo %><br />
+    <%= f.check_box :ativo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

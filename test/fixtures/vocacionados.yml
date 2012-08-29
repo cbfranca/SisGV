@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  nascimento: 2012-08-28 21:44:24
+  cod_escolaridade: 1
+  endereco: MyString
+  bairro: MyString
+  cep: MyString
+  complemento_endereco: MyString
+  cod_estado: 1
+  cidade: MyString
+  telefone_residencial: MyString
+  celular: MyString
+  email: MyString
+  primeiro_contato: 2012-08-28 21:44:24
+  ativo: false
+
+two:
+  nome: MyString
+  nascimento: 2012-08-28 21:44:24
+  cod_escolaridade: 1
+  endereco: MyString
+  bairro: MyString
+  cep: MyString
+  complemento_endereco: MyString
+  cod_estado: 1
+  cidade: MyString
+  telefone_residencial: MyString
+  celular: MyString
+  email: MyString
+  primeiro_contato: 2012-08-28 21:44:24
+  ativo: false
