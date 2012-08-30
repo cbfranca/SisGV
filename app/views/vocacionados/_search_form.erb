@@ -1,0 +1,14 @@
+<%= form_tag(vocacionados_path, :method => "get") do %>
+  <%= label_tag(:with_name, "Por quem está procurando?") %>
+  <%= text_field_tag(:with_name) %>
+  <%= label_tag(:with_birthday_month, "Em que mês ele nasceu?") %>
+  <%= text_field_tag(:with_birthday_month) %>
+  <%= label_tag(:with_neighborhood, "Em que bairro mora?") %>
+  <%= text_field_tag(:with_neighborhood) %>  
+  <%= label_tag(:with_state, "Em que estado mora?") %>
+
+
+  <%= select_tag(:with_state, options_from_collection_for_select(Estado.all, "id", "nome") )%>
+ 
+  <%= submit_tag("Filtrar") %>
+<% end %> 

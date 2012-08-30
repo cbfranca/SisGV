@@ -1,3 +1,19 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('#vocacionado_cod_estado').change(function(){ 
+      $.getJSON("/estados/" + $(this).val() + '/cidades.json', function(data) {
+        $('#vocacionado_cidade_id').empty();        
+        $('#vocacionado_cidade_id').append(new Option('Selecione a cidade','0',true,true));
+        $.each(data, function(i,item){ 
+          $('#vocacionado_cidade_id').append('<option value="' + item.id + '">' + item.nome + '</option>');
+        });
+      });
+    });
+    
+  });
+</script>
+
 <%= form_for(@vocacionado) do |f| %>
 
 <%= render "shared/error_messages", :target => @vocacionado %>
@@ -8,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :nascimento %><br />
-    <%= f.date_select :nascimento,:start_year => 1950, :include_blank => true %>
+    <%= f.date_select :nascimento,:start_year => 1950, :include_blank => true  %>
   </div>
   <div class="field">
     <%= f.label :cod_escolaridade %><br />
@@ -31,12 +47,14 @@
     <%= f.text_field :complemento_endereco %>
   </div>
   <div class="field">
-    <%= f.label :cod_estado %><br />
-    <%= f.number_field :cod_estado %>
+    <%= f.label :estado %><br />    
+    <%= f.collection_select :cod_estado, Estado.all, :id, :nome, {:prompt => true} %>
   </div>
+
   <div class="field">
     <%= f.label :cidade %><br />
-    <%= f.text_field :cidade %>
+    <%= f.collection_select :cidade_id, Cidade.find(:all, :conditions => {:estado_id => @vocacionado.cod_estado}), :id, :nome %>
+     
   </div>
   <div class="field">
     <%= f.label :telefone_residencial %><br />

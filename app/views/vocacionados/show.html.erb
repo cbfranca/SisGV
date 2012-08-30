@@ -7,7 +7,7 @@
 
 <p>
   <b>Nascimento:</b>
-  <%= @vocacionado.nascimento %>
+  <%= l @vocacionado.nascimento , :format => :default %>
 </p>
 
 <p>
@@ -42,7 +42,7 @@
 
 <p>
   <b>Cidade:</b>
-  <%= @vocacionado.cidade %>
+  <%= @vocacionado.cidade_id %>
 </p>
 
 <p>
@@ -62,7 +62,7 @@
 
 <p>
   <b>Primeiro contato:</b>
-  <%= @vocacionado.primeiro_contato %>
+  <%= l @vocacionado.primeiro_contato , :format => :default %>
 </p>
 
 <p>

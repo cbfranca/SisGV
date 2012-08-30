@@ -1,49 +1,25 @@
-<h1>Listing vocacionados</h1>
-
+<h1>Vocacionados</h1>
+<br/>
+<div>
+  <%= render 'search_form' %> 
+</div>
 <table>
-  <tr>
-    <th>Nome</th>
-    <th>Nascimento</th>
-    <th>Cod escolaridade</th>
-    <th>Endereco</th>
-    <th>Bairro</th>
-    <th>Cep</th>
-    <th>Complemento endereco</th>
-    <th>Cod estado</th>
-    <th>Cidade</th>
-    <th>Telefone residencial</th>
-    <th>Celular</th>
-    <th>Email</th>
-    <th>Primeiro contato</th>
-    <th>Ativo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @vocacionados.each do |vocacionado| %>
   <tr>
     <td><%= vocacionado.nome %></td>
-    <td><%= vocacionado.nascimento %></td>
-    <td><%= vocacionado.cod_escolaridade %></td>
-    <td><%= vocacionado.endereco %></td>
-    <td><%= vocacionado.bairro %></td>
-    <td><%= vocacionado.cep %></td>
-    <td><%= vocacionado.complemento_endereco %></td>
-    <td><%= vocacionado.cod_estado %></td>
-    <td><%= vocacionado.cidade %></td>
-    <td><%= vocacionado.telefone_residencial %></td>
-    <td><%= vocacionado.celular %></td>
-    <td><%= vocacionado.email %></td>
-    <td><%= vocacionado.primeiro_contato %></td>
-    <td><%= vocacionado.ativo %></td>
-    <td><%= link_to 'Show', vocacionado %></td>
-    <td><%= link_to 'Edit', edit_vocacionado_path(vocacionado) %></td>
-    <td><%= link_to 'Destroy', vocacionado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+    <td>Cadastrado em <%= l vocacionado.created_at, :format => :default %></td>
+    <td>Contato em <%= l vocacionado.primeiro_contato, :format => :default %></td>
+    
+    <td><%= link_to 'Ver', vocacionado %></td>
+    <td><%= link_to 'Editar', edit_vocacionado_path(vocacionado) %></td>
+    <td><%= link_to 'Deletar', vocacionado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Vocacionado', new_vocacionado_path %>
+<%= link_to 'Cadastrar novo', new_vocacionado_path %>
