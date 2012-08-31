@@ -4,10 +4,10 @@ class VocacionadosController < ApplicationController
   def index
     @vocacionados = Vocacionado.search(params)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @vocacionados }
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @vocacionados }
+    # end
   end
 
 
