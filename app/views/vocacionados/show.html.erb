@@ -7,7 +7,7 @@
 
 <p>
   <b>Nascimento:</b>
-  <%= l @vocacionado.nascimento , :format => :default %>
+  <%= l(@vocacionado.nascimento , :format => :default)  if !@vocacionado.nascimento.nil?   %>
 </p>
 
 <p>
@@ -61,8 +61,8 @@
 </p>
 
 <p>
-  <b>Primeiro contato:</b>
-  <%= l @vocacionado.primeiro_contato , :format => :default %>
+  <b>Primeiro contato:</b>  
+    <%= l(@vocacionado.primeiro_contato , :format => :default)  if !@vocacionado.primeiro_contato.nil?   %>
 </p>
 
 <p>

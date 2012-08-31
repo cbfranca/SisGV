@@ -2,6 +2,7 @@
 <br/>
 <div>
   <%= render 'search_form' %> 
+  <br/><br/><br/>
 </div>
 <table>
 
@@ -10,9 +11,8 @@
     <td><%= vocacionado.nome %></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
-    <td>Cadastrado em <%= l vocacionado.created_at, :format => :default %></td>
-    <td>Contato em <%= l vocacionado.primeiro_contato, :format => :default %></td>
-    
+    <td>Cadastrado em <%= l vocacionado.created_at, :format => :default %></td>    
+    <td>Contato em <%= l(vocacionado.primeiro_contato, :format => :default)  if !vocacionado.primeiro_contato.nil?%></td>    
     <td><%= link_to 'Ver', vocacionado %></td>
     <td><%= link_to 'Editar', edit_vocacionado_path(vocacionado) %></td>
     <td><%= link_to 'Deletar', vocacionado, method: :delete, data: { confirm: 'Are you sure?' } %></td>

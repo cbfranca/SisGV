@@ -1,14 +1,25 @@
-<%= form_tag(vocacionados_path, :method => "get") do %>
-  <%= label_tag(:with_name, "Por quem está procurando?") %>
+<%= form_tag(vocacionados_path, :method => "get") do %> 
+  <%= label_tag(:with_name, "Por quem está procurando?") %> <br/>
   <%= text_field_tag(:with_name) %>
-  <%= label_tag(:with_birthday_month, "Em que mês ele nasceu?") %>
+  <br/><%= label_tag(:with_birthday_month, "Em que mês ele nasceu?") %><br/>
   <%= text_field_tag(:with_birthday_month) %>
-  <%= label_tag(:with_neighborhood, "Em que bairro mora?") %>
+  <br/><%= label_tag(:with_neighborhood, "Em que bairro mora?") %><br/>
   <%= text_field_tag(:with_neighborhood) %>  
-  <%= label_tag(:with_state, "Em que estado mora?") %>
+  
+  <br/><%= label_tag(:vocacionado_cod_estado, "Em que estado mora?") %><br/>
+  <%= select_tag(:vocacionado_cod_estado, options_from_collection_for_select(Estado.all, "id", "nome"), {:prompt => "Selecione o estado"} )%>
 
 
-  <%= select_tag(:with_state, options_from_collection_for_select(Estado.all, "id", "nome") )%>
+  <br/><%= label_tag(:vocacionado_cidade_id, "Em que cidade mora?") %><br/>
+  <%= select_tag( :vocacionado_cidade_id, options_from_collection_for_select(Cidade.find(:all, :conditions => {:estado_id => :vocacionado_cod_estado}), :id, :nome ))%>
+
+<br/>
+  <%= check_box_tag(:with_birthday) %>  
+  <%= label_tag(:with_birthday, "Quero ver os aniversariantes do mês") %>
+
+  <%= check_box_tag(:with_dead_file) %>  
+  <%= label_tag(:with_dead_file, "Quero buscar no arquivo morto") %>
  
+ <br/>
   <%= submit_tag("Filtrar") %>
 <% end %> 

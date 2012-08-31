@@ -36,3 +36,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+
+#Gems de Projeto
+
+gem "nilify_blanks"

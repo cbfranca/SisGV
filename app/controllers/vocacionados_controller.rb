@@ -2,13 +2,14 @@ class VocacionadosController < ApplicationController
   # GET /vocacionados
   # GET /vocacionados.json
   def index
-    @vocacionados = Vocacionado.all
+    @vocacionados = Vocacionado.search(params)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @vocacionados }
     end
   end
+
 
   # GET /vocacionados/1
   # GET /vocacionados/1.json
