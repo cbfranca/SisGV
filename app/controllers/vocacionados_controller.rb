@@ -11,14 +11,19 @@ class VocacionadosController < ApplicationController
   end
 
 
-  # GET /vocacionados/1
-  # GET /vocacionados/1.json
+  
+  # GET /vocacionados/1.pdf
   def show
     @vocacionado = Vocacionado.find(params[:id])
 
+    output = FichaCadastralVocacionado.new.to_pdf(@vocacionado)
+
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @vocacionado }
+   
+      format.pdf do         
+        send_data output, :filename => "vocacionado_#{@vocacionado.created_at.strftime("%d/%m/%Y")}.pdf",
+                          :type => "application/pdf"        
+      end
     end
   end
 

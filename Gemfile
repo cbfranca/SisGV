@@ -41,3 +41,4 @@ gem 'jquery-rails'
 #Gems de Projeto
 
 gem "nilify_blanks"
+gem "prawn"

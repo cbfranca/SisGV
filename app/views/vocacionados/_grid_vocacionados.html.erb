@@ -6,7 +6,8 @@
 
     <td>Cadastrado em <%= l vocacionado.created_at, :format => :default %></td>    
     <td>Contato em <%= l(vocacionado.primeiro_contato, :format => :default)  if !vocacionado.primeiro_contato.nil?%></td>    
-    <td><%= link_to 'Ver', vocacionado %></td>
+    <td><%= link_to 'PDF', vocacionado_path(vocacionado, :format => 'pdf')  %></td>    
+
     <td><%= link_to 'Editar', edit_vocacionado_path(vocacionado) %></td>
     <td><%= link_to 'Deletar', vocacionado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

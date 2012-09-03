@@ -61,5 +61,9 @@ module SisGV
 
     #Aplicando pt-BR
     config.i18n.default_locale = "pt-BR"
+
+    #config.autoloadpaths << "#{Rails.root}/app/reports"
+    #config.load_paths << "#{RAILS_ROOT}/vendor/prawn/lib"
+
   end
 end
