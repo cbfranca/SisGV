@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829145539) do
+ActiveRecord::Schema.define(:version => 20120906204907) do
 
   create_table "cidades", :force => true do |t|
     t.string   "nome"
@@ -27,23 +27,33 @@ ActiveRecord::Schema.define(:version => 20120829145539) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
   create_table "vocacionados", :force => true do |t|
-    t.string   "nome"
-    t.datetime "nascimento"
-    t.integer  "cod_escolaridade"
-    t.string   "endereco"
-    t.string   "bairro"
-    t.string   "cep"
-    t.string   "complemento_endereco"
-    t.integer  "cod_estado"
-    t.string   "cidade"
-    t.string   "telefone_residencial"
-    t.string   "celular"
-    t.string   "email"
-    t.datetime "primeiro_contato"
-    t.boolean  "ativo"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.string  "nome"
+    t.date    "nascimento"
+    t.integer "cod_escolaridade"
+    t.string  "endereco"
+    t.string  "bairro"
+    t.string  "cep"
+    t.string  "complemento_endereco"
+    t.integer "cod_estado"
+    t.integer "cidade_id"
+    t.string  "telefone_residencial"
+    t.string  "celular"
+    t.string  "email"
+    t.date    "primeiro_contato"
+    t.boolean "ativo"
+    t.date    "created_at",           :null => false
+    t.date    "updated_at",           :null => false
   end
 
 end

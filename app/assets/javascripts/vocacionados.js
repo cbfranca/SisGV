@@ -6,7 +6,7 @@
         $('#vocacionado_cidade_id').append(new Option('Selecione a cidade','',true,true));
         $.each(data, function(i,item){ 
           $('#vocacionado_cidade_id').append('<option value="' + item.id + '">' + item.nome + '</option>');
-        });
+        });        
       });
     });    
 
@@ -14,12 +14,6 @@
 
       $.get(this.action, $(this).serialize(), null, "script");      
       return false;      
+   
     });
-
-
   });
-
-
-
-
-
