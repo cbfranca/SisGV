@@ -1,5 +1,14 @@
   $(document).ready(function() {
 
+    $(function () {  
+      $('#grid_vocacionados .pagination a').live('click',
+        function () {  
+          $.getScript(this.href);  
+          return false;  
+        }  
+      );  
+    });
+
     $('#vocacionado_cod_estado').change(function(){ 
       $.getJSON("/estados/" + $(this).val() + '/cidades.json', function(data) {
         $('#vocacionado_cidade_id').empty();        
