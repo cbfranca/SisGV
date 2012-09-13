@@ -42,4 +42,5 @@ gem 'jquery-rails'
 
 gem "nilify_blanks"
 gem "prawn"
+gem "prawn-labels"
 gem "will_paginate"

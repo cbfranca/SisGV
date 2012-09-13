@@ -5,28 +5,44 @@ class VocacionadosController < ApplicationController
 
   def index
     session[:filtro_busca] = nil
-    @vocacionado = Vocacionado.search(params).paginate(:per_page => 2, :page => params[:page])
-    session[:filtro_busca] = @vocacionado
+    @vocacionadoFull = Vocacionado.search(params)
+    @vocacionado = Vocacionado.search(params).paginate(:per_page => 5, :page => params[:page])
+    session[:filtro_busca] = @vocacionadoFull
   end
 
 
-def generate_registration_form
-  @vocacionado = Vocacionado.find(params[:id])
+  def generate_registration_form
+    @vocacionado = Vocacionado.find(params[:id])
 
-    output = FichaCadastralVocacionado.new.to_pdf(@vocacionado)
+      output = FichaCadastralVocacionado.new.to_pdf(@vocacionado)
+
+      respond_to do |format|
+     
+        format.pdf do         
+          send_data output, :filename => "vocacionado_#{@vocacionado.created_at.strftime("%d/%m/%Y")}.pdf",
+                            :type => "application/pdf",
+                            :disposition => "inline"
+        end
+      end  
+  end
+
+  def generate_labels
+    @vocacionado = session[:filtro_busca]
+
+    output = EtiquetasVocacionados.new.to_pdf(@vocacionado)
 
     respond_to do |format|
    
       format.pdf do         
-        send_data output, :filename => "vocacionado_#{@vocacionado.created_at.strftime("%d/%m/%Y")}.pdf",
-                          :type => "application/pdf",
-                          :disposition => "inline"
+        send_data output, :filename => "etiquetas#{DateTime.now}.pdf",
+                          :type => "application/pdf"        
       end
-    end  
-end
+    end
+  end
+
   
-  # GET /vocacionados/1.pdf
-  def show
+  
+  def generate_list
     @vocacionado = session[:filtro_busca]
 
     output = ListagemVocacionados.new.to_pdf(@vocacionado)

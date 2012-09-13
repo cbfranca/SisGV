@@ -1,5 +1,4 @@
-SisGV::Application.routes.draw do
-  resources :vocacionados
+SisGV::Application.routes.draw do  resources :vocacionados
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,11 +55,15 @@ SisGV::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-
   
-  get '/estados/:estado_id/cidades', :to => 'cidades#index'
+  get '/estados/:estado_id/cidades', :to => 'cidades#index'  
 
-  match ':controller(/:action(/:id))(.:format)'
+  match  ':controller(/:action(/:id))(.:format)'
+
+  match "generate_labels" => "vocacionados#generate_labels"
+  match "generate_list" => "vocacionados#generate_list"
+
+
 
 
 end

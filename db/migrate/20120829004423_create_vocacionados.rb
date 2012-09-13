@@ -3,7 +3,7 @@ class CreateVocacionados < ActiveRecord::Migration
     create_table :vocacionados do |t|
       t.string :nome
       t.date :nascimento
-      t.integer :cod_escolaridade
+      t.string :escolaridade
       t.string :endereco
       t.string :bairro
       t.string :cep

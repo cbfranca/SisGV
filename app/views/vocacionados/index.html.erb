@@ -14,4 +14,5 @@
 <br />
 
 <%= link_to 'Cadastrar novo', new_vocacionado_path %>
-<%= link_to 'Gerar listagem', :action => :show,  :format => 'pdf' %>
+<%= link_to 'Gerar listagem', :action => :generate_list,  :format => 'pdf' %>
+<%= link_to 'Gerar etiquetas', :action => :generate_labels,  :format => 'pdf' %>

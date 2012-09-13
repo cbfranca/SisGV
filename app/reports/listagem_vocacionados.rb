@@ -11,11 +11,11 @@ class ListagemVocacionados < Prawn::Document
 
   	items = [["Nome","Estado","Cidade"]]
   	items += @vocacionados.map do |vocacionado|
-	[  		
-		vocacionado.nome,
-		Estado.find(vocacionado.cod_estado).nome,
-		Cidade.find(vocacionado.cidade_id).nome	   
-	]
+  	[  		
+  		vocacionado.nome,
+  		Estado.find(vocacionado.cod_estado).nome,
+  		Cidade.find(vocacionado.cidade_id).nome	   
+  	]
   	end  	
 
   	table items, :header => true ,:row_colors => ["FFFFFF","DDDDDD"]

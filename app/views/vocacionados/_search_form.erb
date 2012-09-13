@@ -11,7 +11,7 @@
 
 
   <br/><%= label_tag(:vocacionado_cidade_id, "Em que cidade mora?") %><br/>
-  <%= select_tag( :vocacionado_cidade_id, options_from_collection_for_select(Cidade.find(:all, :conditions => {:estado_id => :vocacionado_cod_estado}), :id, :nome ))%>
+  <%= select_tag( :vocacionado_cidade_id, options_from_collection_for_select(Cidade.find(:all, :conditions => {:estado_id => :vocacionado_cod_estado}), {:prompt => "Selecione"}, :id, :nome))%>
 
 <br/>
   <%= check_box_tag(:with_birthday) %>  
