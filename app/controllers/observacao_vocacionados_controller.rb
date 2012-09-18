@@ -66,8 +66,8 @@ class ObservacaoVocacionadosController < ApplicationController
 
     respond_to do |format|
       if @observacao_vocacionado.update_attributes(params[:observacao_vocacionado])
-        format.html { redirect_to @observacao_vocacionado, notice: 'Observacao vocacionado was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to @observacao_vocacionado}
+        flash[:notice] = "Obs alterada com sucesso!"
       else
         format.html { render action: "edit" }
         format.json { render json: @observacao_vocacionado.errors, status: :unprocessable_entity }

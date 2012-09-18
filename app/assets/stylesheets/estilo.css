@@ -110,6 +110,20 @@ h4{
 	padding: 0;
 	margin: 0;
 }
+
+.tableshow{
+	font-size: 14px;
+	text-align: left;
+	font-family:Arial, Verdana;
+	font: Arial, Verdana;
+	color: #000;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	clear: both;
+	margin: .5em 0;
+}
+
 td.pequeno {
   width: 15%;
 }
@@ -306,6 +320,20 @@ input.blur {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+
+}
+
+.notice {	
+	width: 166px;
+  	text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 25px;
+    font-size: 12px;
+    margin: 6px 175px 0;
+    margin-bottom: 0px;
+    border: 1px solid #9c9;
+	background: #e2f9e3 url(tick.png) no-repeat 5px center;
+	color: #060;
 
 }
 
