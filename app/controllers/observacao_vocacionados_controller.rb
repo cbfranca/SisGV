@@ -5,9 +5,12 @@ class ObservacaoVocacionadosController < ApplicationController
   def index   
     if params[:vocacionado]
       @observacao_vocacionados = ObservacaoVocacionado.search(params).where("vocacionado_id = #{params[:vocacionado]}")
-                                                                     .paginate(:per_page => 5, :page => params[:page])
-    end  
+                                                                     .paginate(:per_page => 5, :page => params[:page])    
+    else
+      @observacao_vocacionados = ObservacaoVocacionado.search(params).paginate(:per_page => 5, :page => params[:page])                                                                         
+    end 
   end
+
 
   # GET /observacao_vocacionados/1
   # GET /observacao_vocacionados/1.json
@@ -79,7 +82,7 @@ class ObservacaoVocacionadosController < ApplicationController
     @observacao_vocacionado.destroy
 
     respond_to do |format|
-      format.html { redirect_to observacao_vocacionados_url }
+      format.html { redirect_to :action => :index , :vocacionado => @observacao_vocacionado.vocacionado_id }
       format.json { head :no_content }
     end
   end

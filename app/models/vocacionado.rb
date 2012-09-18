@@ -16,8 +16,7 @@ class Vocacionado < ActiveRecord::Base
   						:cidade_id, 
   						:cod_estado, 
   						:endereco,
-  						:nascimento,
-  						:nome,
+  						:nascimento,  						
   						:message => "inválido. Favor preencher corretamente."     
   
   scope :with_name, lambda {|parameter| where("nome like ?", "%#{parameter}%")}     

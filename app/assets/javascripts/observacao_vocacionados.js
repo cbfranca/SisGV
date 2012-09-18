@@ -11,4 +11,13 @@
    
     });
 
+   $(function () {  
+      $('#area_tabela .pagination a').live('click',
+        function () {  
+          $.getScript(this.href);  
+          return false;  
+        }  
+      );  
+    });
+
   });

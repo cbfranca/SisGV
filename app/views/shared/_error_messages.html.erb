@@ -1,9 +1,9 @@
   <% if target.errors.any? %>
     <div id="error_explanation">
-      <h2> Existem erros que impedem que o registro seja cadastrado. Por favor verifíque-os:</h2>
+      <h3> Existem erros que impedem que o registro seja cadastrado. Por favor verifíque-os:</h3>
 
       <ul>
-      <% target.errors.full_messages.each do |msg| %>
+      <% target.errors.full_messages.each do |msg| %>      
         <li><%= msg %></li>
       <% end %>
       </ul>

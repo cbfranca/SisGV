@@ -1,29 +1,44 @@
 <%= form_for(@observacao_vocacionado) do |f| %>
-  <% if @observacao_vocacionado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@observacao_vocacionado.errors.count, "error") %> prohibited this observacao_vocacionado from being saved:</h2>
 
-      <ul>
-      <% @observacao_vocacionado.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<br/>
+<%= render "shared/error_messages", :target => @observacao_vocacionado %>
+
+<table style="width:455px; height:auto" class="textof" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="3"  style="width:148px;"><h3 style="text-align:left">O que ocorreu?
+      <span style="color: #F00;"><strong>*</strong></span></h3>
+    </td>        
+  </tr>
+  <tr>
+    <td colspan="3" style="width:121px;">
+      <div>
+         <%= f.hidden_field :vocacionado_id %>
+        <%= f.text_field(:descricao, :class => "estilo_caixa blur", :style => "width:328px; height:18px;") %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"  style="width:148px;"><h3 style="text-align:left">Quando ocorreu?
+      <span style="color: #F00;"><strong>*</strong></span></h3>
+    </td>        
+  </tr>
+  <tr>
+    <td colspan="3" style="width:121px;">
+      <div>
+        <%= f.date_select :data  , {:start_year => 1980, :include_blank => true}, {:class => "text_select"} %>
+      </div>
+    </td>
+  </tr>
+ 
+</table>
+ <br><br>
+  <div  style="float:left; width:476px; padding-right:10px; margin-left:-298px">
+    <div style="float:left; padding-left:296px;">       
+      <%= image_submit_tag "salvar.png", :class => "cursor", :style=>"width:83px; height:27px; border:0px solid #ddd; padding: 0px 0px 0px 0px",  :border=>"0" %>
+   </div>
+    <div id="cancelar" style="float:right;">
+      <h4><%= link_to 'Cancelar', observacao_vocacionados_path , :class=>"cursor"%></h4>
     </div>
-  <% end %>
+  </div>  
 
-  <div class="field">
-    <%= f.label :vocacionado_id %><br />
-    <%= f.number_field :vocacionado_id %>
-  </div>
-  <div class="field">
-    <%= f.label :descricao %><br />
-    <%= f.text_field :descricao %>
-  </div>
-  <div class="field">
-    <%= f.label :data %><br />
-    <%= f.date_select :data %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

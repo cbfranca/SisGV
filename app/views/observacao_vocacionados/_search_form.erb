@@ -1,7 +1,24 @@
 <%= form_tag(observacao_vocacionados_path, :method => "post" , :id => "observacao_vocacionados_search") do %> 
-  <br/><%= label_tag(:with_date, "Quando foi feita a observação?") %><br/>
-  <%= text_field_tag(:with_date) %>
- 
-  <br/>
-  <%= submit_tag("Filtrar") %>
+<table style="width:600px;" width="872" height="30" class="textof" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td colspan="6">		
+		<%= label_tag(:with_date, "Quando foi feita a observação?", :style => "text-align:left") %>		
+	</td>	
+</tr>
+<tr >
+	<td>
+		<%= text_field_tag(:with_date, nil, :class => "estilo_caixa blur",:style => "width:168px; height: 18px;") %>
+    	<div style="float:right; margin-left:-20px; ">
+      		<%= image_submit_tag "pesquisar.jpg", :class => "cursor", :style => "margin-top:-7px;margin-right:0px;border:0px;", :border => "0",:vocacionado => params[:vocacionado] %>
+    	</div>
+  </td>
+	<td style="width:315px">&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+</tr>
+</table>
 <% end %> 
+<br />
+<br />

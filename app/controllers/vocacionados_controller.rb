@@ -39,8 +39,6 @@ class VocacionadosController < ApplicationController
       end
     end
   end
-
-  
   
   def generate_list
     @vocacionado = session[:filtro_busca]

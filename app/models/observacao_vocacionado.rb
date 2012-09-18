@@ -14,7 +14,7 @@ class ObservacaoVocacionado < ActiveRecord::Base
    belongs_to :vocacionado
 
    scope :with_date, lambda {|parameter| where("date_format(data,'%d/%m/%Y') = ?", parameter)}
-
+   scope :vocacionado_id, lambda {|parameter| where("vocacionado_id = ?", parameter)}
 
    def self.search(parameters)
      observacao_vocacionado_query = self.scoped
