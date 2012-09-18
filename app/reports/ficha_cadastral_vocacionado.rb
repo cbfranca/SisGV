@@ -20,7 +20,7 @@ class FichaCadastralVocacionado < Prawn::Document
     text "Nascimento: #{@vocacionado.nascimento}", :inline_format => true
 
     move_down 15
-    text "Escolaridade: #{@vocacionado.cod_escolaridade}", :inline_format => true
+    text "Escolaridade: #{@vocacionado.escolaridade}", :inline_format => true
 
     move_down 15
     text "Endereço: #{@vocacionado.endereco}", :inline_format => true

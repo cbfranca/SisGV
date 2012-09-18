@@ -1,17 +1,32 @@
-<table>
-<% @vocacionado.each do |vocacionado| %>
-  <tr>
-    <td><%= vocacionado.nome %></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-    <td>Cadastrado em <%= l vocacionado.created_at, :format => :default %></td>    
-    <td>Contato em <%= l(vocacionado.primeiro_contato, :format => :default)  if !vocacionado.primeiro_contato.nil?%></td>    
-
-       <td><%= link_to 'PDF', {:action => :generate_registration_form, :id => vocacionado, :format => 'pdf'} , :target => "_blank" %></td>   
-
-    <td><%= link_to 'Editar', edit_vocacionado_path(vocacionado) %></td>
-    <td><%= link_to 'Deletar', vocacionado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-<%= will_paginate @vocacionado %>
+    <table style="width:600px;" width="872" height="30" class="textof" border="0" cellpadding="6" cellspacing="0">
+      <% @vocacionado.each do |vocacionado| %>
+        <tr>
+            <td><%= vocacionado.nome %></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>Cadastrado em <%= l vocacionado.created_at, :format => :default %></td>    
+            <td>Contato em <%= l(vocacionado.primeiro_contato, :format => :default)  if !vocacionado.primeiro_contato.nil?%>
+            </td>    
+            <td class="cursor">
+                <%= link_to image_tag("alterar_icon.png"), edit_vocacionado_path(vocacionado) %>                
+            </td>
+            <td class="cursor">
+                <%= link_to link_to image_tag("print_icon.png"), {:action => :generate_registration_form, :id => vocacionado, :format => 'pdf'} , :target => "_blank" %>
+            </td>
+            <td  class="cursor">
+                <%= link_to image_tag("obs_icon.png"), :controller => "observacao_vocacionados", :action => "new", :vocacionado => vocacionado  %>
+            </td>
+            <td class="cursor">                
+                <%= link_to image_tag("manager_icon.png"), :controller => "observacao_vocacionados", :action => "index", :vocacionado => vocacionado  %>
+            </td>
+        </tr>                 
+    <% end %>
+    </table>
+    <br/>
+    <%= will_paginate @vocacionado, 
+    :previous_label => 'Anterior',
+    :separator => '|',
+    :next_label => 'Próximo',
+    :param_name => 'page'
+    %>
+    <br><br>   
+  

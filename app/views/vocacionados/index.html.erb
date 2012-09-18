@@ -1,18 +1,28 @@
-<h1>Vocacionados</h1>
-<br/>
-<div>
+<h2>Gerenciamento de Vocacionado</h2>
+  <div  style="float:right; width:245px; padding-right:30px;">
+    <div style="float:left; padding-left:120px;">     
+    <%= link_to image_tag("mais.jpg", :style => "border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0"), new_vocacionado_path %>     
+    </div>
+  </div>
+  <%= image_tag("linha.png") %>
+  <br/>
+  <br/>
   <%= render 'search_form' %> 
 
-  <br/><br/><br/>
-
-</div>
-
-<div id="grid_vocacionados">
-  <%= render 'grid_vocacionados' %> 
-</div>
-
+  <div id="area_tabela" style="margin-left:-31px;" >   
+	  <%= render 'grid_vocacionados' %> 
+  </div>
 <br />
+<br />
+<div  style="float:right; width:476px; padding-right:45px;">
+    <div style="float:left; padding-left:239px;">       
 
-<%= link_to 'Cadastrar novo', new_vocacionado_path %>
-<%= link_to 'Gerar listagem', :action => :generate_list,  :format => 'pdf' %>
-<%= link_to 'Gerar etiquetas', :action => :generate_labels,  :format => 'pdf' %>
+      <%= link_to image_tag("gerar_listagem_icon.png", :alt => "Gerar listagem de Vocacionado", :class => "cursor", :style => " border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0"), :action => :generate_list,  :format => 'pdf' %>
+   </div>
+    <div style="float:right;padding-right:-67px;">
+
+       <%= link_to image_tag("gerar_etiquetas_icon.png", :alt => "Gerar etiquetas de  Vocacionado", :class => "cursor", :style => " border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0") , :action => :generate_labels,  :format => 'pdf' %>
+    </div>
+</div>
+
+

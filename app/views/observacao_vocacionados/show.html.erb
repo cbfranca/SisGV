@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Vocacionado:</b>
+  <%= @observacao_vocacionado.vocacionado_id %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @observacao_vocacionado.descricao %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @observacao_vocacionado.data %>
+</p>
+
+
+<%= link_to 'Edit', edit_observacao_vocacionado_path(@observacao_vocacionado) %> |
+<%= link_to 'Back', observacao_vocacionados_path %>

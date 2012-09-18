@@ -1,0 +1,13 @@
+<div>
+  <%= render 'search_form' %> 
+
+  <br/><br/><br/>
+
+</div>
+
+<div id="grid_observacao_vocacionados">
+  <%= render 'grid_observacao_vocacionados' %> 
+</div>
+
+
+<%= link_to 'Nova observação', :action => "new", :vocacionado => params[:vocacionado]  %>

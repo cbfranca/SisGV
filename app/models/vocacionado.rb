@@ -6,6 +6,8 @@ class Vocacionado < ActiveRecord::Base
   #Relacionamentos
   belongs_to :estado
   belongs_to :cidade
+  has_many :observacao_vocacionados
+  
 
   #Validações
   validates_presence_of :nome ,
@@ -23,7 +25,7 @@ class Vocacionado < ActiveRecord::Base
   scope :with_neighborhood, lambda {|parameter| where("bairro = ?", parameter)}
   scope :vocacionado_cod_estado, lambda {|parameter| where("cod_estado = ?", parameter)}
   scope :vocacionado_cidade_id, lambda {|parameter| where("cidade_id = ?", parameter)}
-  scope :with_birthday, lambda {|parameter| where(" month(now()) = ?, month(nascimento)") if parameter.present? }
+  scope :with_birthday, lambda {|parameter| where(" month(now()) =  month(nascimento)") if parameter.present? }
   scope :with_dead_file, lambda {|parameter| where(" ativo = ?", 0) if parameter.present? }
 
   def self.search(parameters)

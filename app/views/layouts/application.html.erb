@@ -5,13 +5,21 @@
   <%= stylesheet_link_tag    "application", "stylesheet" , "estilo", 
   							 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css",
   							 :media => "all" %>
-  <%= javascript_include_tag "application", "jquery", "vocacionados", "jquery_001" ,
-  							 "jquery_002",
-  							 "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", 
+  <%= javascript_include_tag "application",  "vocacionados",
+  							 "http://code.jquery.com/jquery-latest.js",
   							 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js",
   							 "https://jquery-ui.googlecode.com/svn/trunk/ui/i18n/jquery.ui.datepicker-pt-BR.js",
                  "http://cloud.github.com/downloads/digitalBush/jquery.maskedinput/jquery.maskedinput-1.3.js" %>
   <%= csrf_meta_tags %>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+      $("#filtro_avancado").click(function () {
+        $("#filtro").toggle("slow");
+      })      
+    });  
+ </script>
 
 </head>
 <body>

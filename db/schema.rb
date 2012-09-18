@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906204907) do
+ActiveRecord::Schema.define(:version => 20120913222121) do
 
   create_table "cidades", :force => true do |t|
     t.string   "nome"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(:version => 20120906204907) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "observacao_vocacionados", :force => true do |t|
+    t.integer  "vocacionado_id"
+    t.string   "descricao"
+    t.date     "data"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "observacao_vocacionados", ["vocacionado_id"], :name => "index_observacao_vocacionados_on_vocacionado_id"
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -40,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20120906204907) do
   create_table "vocacionados", :force => true do |t|
     t.string  "nome"
     t.date    "nascimento"
-    t.integer "cod_escolaridade"
+    t.string  "escolaridade"
     t.string  "endereco"
     t.string  "bairro"
     t.string  "cep"

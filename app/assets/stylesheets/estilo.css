@@ -13,7 +13,7 @@ html,body,#container{
 body{
 	margin:0;
 	padding:0;
-	background-image:url("background.jpg"); background-repeat:repeat-x;
+	background-image:url(background.jpg); background-repeat:repeat-x;
 	margin-top:0;
 	
 } 
@@ -92,7 +92,7 @@ h3{
 h4{
 	text-align:center;
 	margin-top:6px;
-	margin-left:-120px;
+	margin-left:-8px;
 	font:"Trebuchet MS", Arial, Verdana;
 	font-family: "Trebuchet MS", Arial, Verdana;;
 	font-size:13px;
@@ -145,7 +145,7 @@ tr.bottom td {
 	padding-top:16px;
 	padding-left:10px;
 	text-align:center;
-	color:#fff;
+	color:#000;
 	font-family: "Trebuchet MS", Arial, Verdana;
 	font-size: 12px;
 	font:"Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -166,14 +166,14 @@ tr.bottom td {
 
 .select2{
 	position:absolute;
-	width: 100px; 
+	width: 50px; 
 	height: 20px;
 	color: #666;
 	padding-left:8px;
 	padding-right:66px;
 	font: 12px/21px arial,sans-serif;
 	background: url(bakground_selec_cor.png)no-repeat;
-	overflow: hidden;width:140px;
+	overflow: hidden;width:110px;
 }
 .select3{
 	position:absolute;
@@ -258,37 +258,22 @@ noindex:-o-prefocus,  .select {
 .cursor{
 	cursor:pointer;
 }
-
-#cancelar a.cursor:link {
-	color: #F00;
-}
-
-
-#cancelar a.cursor:visited {
-	color: #F00;
-}
-
-#cancelar a.cursor:active {
-	color: #F00;
-}
-
-
 .border_gradient {
-	border-image: url( borda_conteudo.png) 1 1 0 0 stretch;
-	-moz-border-image: url( borda_conteudo.png) 1 1 0 0 stretch;
-	-webkit-border-image:url( borda_conteudo.png) 1 1 0 0 stretch;
-	-o-border-image:url( borda_conteudo.png) 1 1 0 0 stretch; 
-	border-image-source:url( borda_conteudo.png);
+	border-image: url(borda_conteudo.png) 1 1 0 0 stretch;
+	-moz-border-image: url(borda_conteudo.png) 1 1 0 0 stretch;
+	-webkit-border-image:url(borda_conteudo.png) 1 1 0 0 stretch;
+	-o-border-image:url(borda_conteudo.png) 1 1 0 0 stretch; 
+	border-image-source:url(borda_conteudo.png);
 	border-image-width:1px;
 	border-width:1px;
 }
-#footer{	
+#footer{
 	clear:both;
 	position:relative;
 	z-index:10;
 	height:63px;
 	margin-top:163px;
-	background-color:#000;
+	background-color:#fff;
 }
 #info_footer{
 	position:relative;
@@ -306,4 +291,31 @@ input {
 }			
 input.blur {
 	color: #999;
+}
+#filtro{
+	display:none;
+	padding-top:20px;
+	height:auto;
+	width:auto;
+}
+
+#popup_box { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:300px;  
+	width:600px;  
+	background:#FFFFFF;  
+	left: 740px;
+	top: 250px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	/* additional features, can be omitted */
+	border:2px solid #ff0000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
 }

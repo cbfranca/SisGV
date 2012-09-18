@@ -1,0 +1,7 @@
+<%= form_tag(observacao_vocacionados_path, :method => "post" , :id => "observacao_vocacionados_search") do %> 
+  <br/><%= label_tag(:with_date, "Quando foi feita a observação?") %><br/>
+  <%= text_field_tag(:with_date) %>
+ 
+  <br/>
+  <%= submit_tag("Filtrar") %>
+<% end %> 

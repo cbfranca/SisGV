@@ -13,16 +13,17 @@
       $('#vocacionado_telefone_residencial').mask("(999) 9999-9999");
       $('#vocacionado_celular').mask("(999) 9999-9999");
       $('#vocacionado_cep').mask("99999-999");
-    })
+    });
 
     $(function () {  
-      $('#grid_vocacionados .pagination a').live('click',
+      $('#area_tabela .pagination a').live('click',
         function () {  
           $.getScript(this.href);  
           return false;  
         }  
       );  
     });
+    
 
     $('#vocacionado_cod_estado').change(function(){ 
       $.getJSON("/estados/" + $(this).val() + '/cidades.json', function(data) {

@@ -1,0 +1,15 @@
+<table>
+<% @observacao_vocacionados.each do |observacao_vocacionado| %>
+  <tr>
+    <td><%= observacao_vocacionado.descricao %></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+    <td>Ocorrido em <%= l observacao_vocacionado.data, :format => :default %></td>        
+
+       
+    <td><%= link_to 'Editar', edit_observacao_vocacionado_path(observacao_vocacionado) %></td>
+    <td><%= link_to 'Deletar', observacao_vocacionado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @observacao_vocacionados %>

@@ -1,25 +1,94 @@
-<%= form_tag(vocacionados_path, :method => "post" , :id => "vocacionados_search") do %> 
-  <%= label_tag(:with_name, "Por quem está procurando?") %> <br/>
-  <%= text_field_tag(:with_name) %>
-  <br/><%= label_tag(:with_birthday_month, "Em que mês ele nasceu?") %><br/>
-  <%= text_field_tag(:with_birthday_month) %>
-  <br/><%= label_tag(:with_neighborhood, "Em que bairro mora?") %><br/>
-  <%= text_field_tag(:with_neighborhood) %>  
-  
-  <br/><%= label_tag(:vocacionado_cod_estado, "Em que estado mora?") %><br/>
-  <%= select_tag(:vocacionado_cod_estado, options_from_collection_for_select(Estado.all, "id", "nome"), {:prompt => "Selecione o estado"} )%>
-
-
-  <br/><%= label_tag(:vocacionado_cidade_id, "Em que cidade mora?") %><br/>
-  <%= select_tag( :vocacionado_cidade_id, options_from_collection_for_select(Cidade.find(:all, :conditions => {:estado_id => :vocacionado_cod_estado}), {:prompt => "Selecione"}, :id, :nome))%>
-
-<br/>
-  <%= check_box_tag(:with_birthday) %>  
-  <%= label_tag(:with_birthday, "Quero ver os aniversariantes do mês") %>
-
-  <%= check_box_tag(:with_dead_file) %>  
-  <%= label_tag(:with_dead_file, "Quero buscar no arquivo morto") %>
- 
- <br/>
-  <%= submit_tag("Filtrar") %>
-<% end %> 
+<%= form_tag(vocacionados_path, :method => "post" , :id => "vocacionados_search") do %>
+<table style="width: 600px;" width="872" height="auto;" class="textof" border="0" cellpadding="0"
+    cellspacing="0">
+    <tr>
+        <td>
+            <%= label_tag(:with_name, "Por quem está procurando?", :style => "text-align:left") %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= text_field_tag(:with_name, nil , {:class => "estilo_caixa blur", :style => "width:328px; height: 18px;"}) %>
+            <div style="float: right; margin-left: -20px;">
+                <%= image_submit_tag "filtro.jpg", :class => "cursor", :style => "margin-top:-7px;margin-right:5px;border:0px;" %>
+                <%= image_tag("filtro_avancados.png", :id => "filtro_avancado", :class => "cursor", :style => "margin-top:-2px;margin-right:51px;") %>
+            </div>
+        </td>
+    </tr>
+</table>
+<div id="filtro" style="margin-left: -20px;">
+    <table style="width: 770px; height:auto;" class="textof" border="0" cellpadding="0"
+        cellspacing="0">
+        <tr>
+            <td style="width: 148px; height: 38px">
+                <%= label_tag(:with_birthday_month, "Em que mês ele nasceu?", :style => "text-align: left; padding-left: 20px;") %><br />
+            </td>
+            <td style="width: 600px">
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 190px; height:auto; padding-left: 20px">
+                <div>     
+                    <%= select_tag(:with_birthday_month, options_for_select([
+                        ["Selecione", ""], 
+                        ["Janeiro", "01"], 
+                        ["Fevereiro", "02"],
+                        ["Março", "03"],
+                        ["Abril", "04"],
+                        ["Maio", "05"],
+                        ["Junho", "06"],
+                        ["Julho", "07"],
+                        ["Agosto", "08"],
+                        ["Setembro", "09"],
+                        ["Outubro", "10"],
+                        ["Novembro", "11"],
+                        ["Dezembro", "12"],
+                        ], params[:with_birthday_month]),
+                        :class => "styled2 text_select", :style => "width:168px; height: auto;"
+                        ) %>  
+                </div>
+            </td>
+            <td style="width: 200px;">
+                <%= check_box_tag(:with_birthday, :style => "margin-left: 22px") %>
+                <%= label_tag(:with_birthday, "Quero ver os aniversariantes do mês", :style => "text-align: left; width: auto;") %>
+            </td>
+            <td style="width: 420px">
+                <%= check_box_tag(:with_dead_file) %>
+                <%= label_tag(:with_dead_file, "Quero buscar no arquivo morto", :style => "text-align: left; width: 100px; margin-left-15px") %>
+            </td>
+            <td style="width: 220px">
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 148px; height: 38px">
+                <%= label_tag(:with_neighborhood, "Em que bairro mora?", :style => "text-align: left; padding-left: 20px;") %>
+            </td>
+            <td colspan="2" style="width: 148px; height: 38px">
+                <%= label_tag(:vocacionado_cod_estado, "Em que estado mora?", :style => "text-align: left; padding-left: 20px;") %>
+            </td>
+            <td style="width: 148px; height: 38px">
+                <%= label_tag(:vocacionado_cidade_id, "Em que cidade mora?", :style => "text-align: left; padding-left: 20px; margin-left: -257px;") %>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 190px; padding-left: 20px">
+                <div style="margin-left: 1px; padding-right: 20px;">
+                    <%= text_field_tag(:with_neighborhood, nil,{:class => "estilo_caixa blur", :style => "width: 161px;
+                                                height: 18px;"}) %>
+                </div>
+            </td>
+            <td colspan="2" style="width: 190px; padding-left: 20px">
+                <div style="width: 168px;">
+                    <%= select_tag(:vocacionado_cod_estado, options_from_collection_for_select(Estado.all, "id", "nome"), {:prompt => "Selecione o estado", :class=>"styled2 text_select", :style=>"width: 168px;"} )%>
+                </div>
+            </td>
+            <td style="width: 190px; padding-left: 20px">
+                <div style="margin-left: -261px; padding-left: 8%;">
+                    <%= select_tag( :vocacionado_cidade_id, options_from_collection_for_select(Cidade.find(:all, :conditions => {:estado_id => :vocacionado_cod_estado}), :id, :nome) , :prompt => "Selecione",:class=>"styled2 text_select", :style=>"width: 161px;
+                                                height: 18px;")%>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<% end %>
