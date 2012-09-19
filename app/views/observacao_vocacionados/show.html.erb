@@ -1,16 +1,7 @@
 <table style="width:600px;" width="872" height="30" class="tableshow" border="0" cellpadding="6" cellspacing="0">
 
+
 <%= flash_message %>
-
-<tr>
-  <td>
-  	<h2>O que ocorreu?</h2>
-  </td>
-</tr>
-<tr>
-  <td><%= @observacao_vocacionado.descricao %></td>
-</tr>  
-
 
 <tr>  
   <td><h2>Quando ocorreu?</h2></td>  
@@ -18,9 +9,17 @@
 <tr>
 	<td><%= l @observacao_vocacionado.data, :format => :long %></td>
 </tr>
+<tr>
+  <td>
+  	<h2>O que ocorreu?</h2>
+  </td>
+</tr>
+<tr>
+  <td><%= @observacao_vocacionado.descricao %></td>
+</tr>
 </table>
 <br/>
 <br/>
 
-<%= link_to 'Edit', edit_observacao_vocacionado_path(@observacao_vocacionado) %> |
-<%= link_to 'Back', :action => :index , :vocacionado => @observacao_vocacionado.vocacionado_id %>
+<%= link_to image_tag("editar.png", :alt => "Editar registro"), edit_observacao_vocacionado_path(@observacao_vocacionado) %> 
+<%= link_to image_tag("voltar.png", :alt => "Voltar para página anterior"), :action => :index , :vocacionado => @observacao_vocacionado.vocacionado_id %>

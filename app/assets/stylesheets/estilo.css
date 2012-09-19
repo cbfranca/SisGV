@@ -113,7 +113,7 @@ h4{
 
 .tableshow{
 	font-size: 14px;
-	text-align: left;
+	text-align: justify;
 	font-family:Arial, Verdana;
 	font: Arial, Verdana;
 	color: #000;
@@ -334,7 +334,31 @@ input.blur {
     border: 1px solid #9c9;
 	background: #e2f9e3 url(tick.png) no-repeat 5px center;
 	color: #060;
+}
 
+.error {
+	width: 166px;
+  	text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 25px;
+    font-size: 12px;
+    margin: 6px 175px 0;
+    margin-bottom: 0px;
+	border: 1px solid #c68484;
+	background: #fcc url(cross.png) no-repeat 5px center;
+	color: #c00;
+}
+
+.warning {
+	width: 420px;
+  	text-align: left;
+    font-weight: bold;   
+    font-size: 12px;
+    padding: 6px 30px 0;
+    margin-bottom: 0px;
+	border: 1px solid #dd0;
+	background: #ffc url(error.png) no-repeat 5px center;
+	color: #000;
 }
 
 #error_explanation   h3 {

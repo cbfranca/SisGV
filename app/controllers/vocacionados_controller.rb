@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class VocacionadosController < ApplicationController
   # GET /vocacionados
   # GET /vocacionados.json
@@ -77,11 +79,11 @@ class VocacionadosController < ApplicationController
 
     respond_to do |format|
       if @vocacionado.save
-        format.html { redirect_to vocacionados_url, notice: 'Vocacionado was successfully created.' }
-        format.json { render json: @vocacionado, status: :created, location: @vocacionado }
+        format.html { redirect_to vocacionados_url }
+        flash[:notice] = "Registro criado com sucesso!"
       else
         format.html { render action: "new" }
-        format.json { render json: @vocacionado.errors, status: :unprocessable_entity }
+        flash[:warning] = "Os campos com * são obrigatórios, preencha-os corretamente."
       end
     end
   end
@@ -93,8 +95,8 @@ class VocacionadosController < ApplicationController
 
     respond_to do |format|
       if @vocacionado.update_attributes(params[:vocacionado])
-        format.html { redirect_to vocacionados_url, notice: 'Vocacionado was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to vocacionados_url }
+         flash[:notice] = "Registro alterado com sucesso!"
       else
         format.html { render action: "edit" }
         format.json { render json: @vocacionado.errors, status: :unprocessable_entity }

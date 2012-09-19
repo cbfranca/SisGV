@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class ObservacaoVocacionadosController < ApplicationController
   # GET /observacao_vocacionados
   # GET /observacao_vocacionados.json
@@ -50,11 +52,11 @@ class ObservacaoVocacionadosController < ApplicationController
 
     respond_to do |format|
       if @observacao_vocacionado.save
-        format.html { redirect_to @observacao_vocacionado, notice: 'Observacao vocacionado was successfully created.' }
-        format.json { render json: @observacao_vocacionado, status: :created, location: @observacao_vocacionado }
+        format.html { redirect_to :action => :index, :vocacionado => @observacao_vocacionado.vocacionado_id }        
+        flash[:notice] = "Registro criado com sucesso!"
       else
-        format.html { render action: "new" }
-        format.json { render json: @observacao_vocacionado.errors, status: :unprocessable_entity }
+        format.html { render action: "new" }        
+        flash[:warning] = "Os campos com * são obrigatórios, preencha-os corretamente."
       end
     end
   end
@@ -67,7 +69,7 @@ class ObservacaoVocacionadosController < ApplicationController
     respond_to do |format|
       if @observacao_vocacionado.update_attributes(params[:observacao_vocacionado])
         format.html { redirect_to @observacao_vocacionado}
-        flash[:notice] = "Obs alterada com sucesso!"
+        flash[:notice] = "Registro alterado com sucesso!"
       else
         format.html { render action: "edit" }
         format.json { render json: @observacao_vocacionado.errors, status: :unprocessable_entity }
@@ -83,7 +85,7 @@ class ObservacaoVocacionadosController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to :action => :index , :vocacionado => @observacao_vocacionado.vocacionado_id }
-      format.json { head :no_content }
+      format.json { head :no_content }      
     end
   end
 end

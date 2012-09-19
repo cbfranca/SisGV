@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head>  
   <title>SisGV</title>
   <%= stylesheet_link_tag    "application", "stylesheet" , "estilo", 
   							 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css",
   							 :media => "all" %>
-  <%= javascript_include_tag "application",  "vocacionados", "observacao_vocacionados", "jquery_002",
-  							 #{}"http://code.jquery.com/jquery-latest.js",
+  <%= javascript_include_tag "application",  "vocacionados", "observacao_vocacionados", "jquery_002",  							 
   							 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js",
   							 "https://jquery-ui.googlecode.com/svn/trunk/ui/i18n/jquery.ui.datepicker-pt-BR.js",
                  "http://cloud.github.com/downloads/digitalBush/jquery.maskedinput/jquery.maskedinput-1.3.js" %>
@@ -31,7 +30,9 @@
            </div>
            <div id="menu">
                <ul id="menu">
-                  <li><a href="#">VOCACIONADO</a></li>
+                  <li>
+                    <%= link_to "VOCACIONADO", :controller => :vocacionados, :action => :index %>                    
+                  </li>
                   <li><a href="#">VOCACIONADA</a></li>
                   <li><a href="#">BENFEITOR</a></li>
                   <li><a href="#">ADMINISTRADOR</a></li>
