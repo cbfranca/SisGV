@@ -28,17 +28,10 @@
            <div id="logo">           
            <%= image_tag("SantasMissoesPopulares_logo.png", :alt => "Sistema de Gerenciamento de inscritos.") %>	
            </div>
-           <div id="menu">
-               <ul id="menu">
-                  <li>
-                    <%= link_to "VOCACIONADO", :controller => :vocacionados, :action => :index %>                    
-                  </li>
-                  <li><a href="#">VOCACIONADA</a></li>
-                  <li><a href="#">BENFEITOR</a></li>
-                  <li><a href="#">ADMINISTRADOR</a></li>
-                  <li style="padding-top:160PX"><a href="#">SAIR</a></li>
-               </ul>
-           </div>
+
+         <!-- Renderiza menu-->
+         <%= render 'shared/menu'  if user_signed_in? %> 
+
         </div>
         <div id="conteudo" class="border_gradient">
             <div id="titulo">
