@@ -1,0 +1,55 @@
+<%= form_for(@usuario) do |f| %>
+
+<br/>
+<%= flash_message %>
+
+<table style="width:455px; height:auto" class="textof" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="3"  style="width:148px;"><h3 style="text-align:left">Qual o nome do usuário?
+      <span style="color: #F00;"><strong>*</strong></span></h3>
+    </td>        
+  </tr>
+  <tr>
+    <td colspan="3" style="width:121px;">
+      <div>         
+        <%= f.text_field(:nome, :class => "estilo_caixa", :maxlengh => 200 ,:style => "width:328px; height:18px;") %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"  style="width:148px;"><h3 style="text-align:left">Qual o e-mail dele?
+      <span style="color: #F00;"><strong>*</strong></span></h3>
+    </td>        
+  </tr>
+  <tr>
+    <td colspan="3" style="width:121px;">
+      <div>
+         <%= f.text_field(:email, :class => "estilo_caixa", :maxlengh => 200 ,:style => "width:328px; height:18px;") %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"  style="width:148px;"><h3 style="text-align:left">Escolha uma senha para esse usuário?
+      <span style="color: #F00;"><strong>*</strong></span></h3>
+    </td>        
+  </tr>
+  <tr>
+    <td colspan="3" style="width:121px;">
+      <div>
+         <%= f.password_field(:senha, :class => "estilo_caixa", :maxlengh => 10 ,:style => "width:150px; height:18px;") %>
+      </div>
+    </td>
+  </tr>
+ 
+</table>
+ <br><br>
+  <div  style="float:left; width:476px; padding-right:10px; margin-left:-298px">
+    <div style="float:left; padding-left:296px;">       
+      <%= image_submit_tag "salvar.png", :class => "cursor", :style=>"width:83px; height:27px; border:0px solid #ddd; padding: 0px 0px 0px 0px",  :border=>"0" %>
+   </div>
+    <div id="cancelar" style="float:right;">
+      <h4><%= link_to 'Cancelar', usuarios_path , :class=>"cursor"%></h4>
+    </div>
+  </div>  
+
+<% end %>

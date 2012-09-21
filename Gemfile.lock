@@ -69,6 +69,7 @@ GEM
       ttfunk (~> 1.0.2)
     prawn-labels (0.11.3.0)
       prawn (>= 0.12.0)
+    prawn-layout (0.8.4)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -126,6 +127,7 @@ DEPENDENCIES
   nilify_blanks
   prawn
   prawn-labels
+  prawn-layout
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

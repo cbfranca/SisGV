@@ -1,0 +1,16 @@
+<table style="width:600px;" width="872" height="30" class="textof" border="0" cellpadding="6" cellspacing="0">
+	<% @usuarios.each do |usuario| %>
+	  <tr>
+		<td><%= usuario.nome %></td>
+	    <td>&nbsp;</td>
+		<td><%= usuario.email  %></td> 		
+		<td  class="cursor">		
+	 		<%= link_to image_tag("alterar_icon.png"), edit_usuario_path(usuario) %>
+		</td>
+	   	<td class="cursor">   		
+	   		<%= link_to image_tag("excluir_icon.png"), usuario, method: :delete, data: { confirm: 'Deseja mesmo excluir esse usuário?' } %>
+	   	</td>
+	  </tr>	
+	<% end %>			
+</table>
+<%#= will_paginate @usuarios %>

@@ -4,7 +4,6 @@ class VocacionadosController < ApplicationController
   # GET /vocacionados
   # GET /vocacionados.json
 
-
   def index
     session[:filtro_busca] = nil
     @vocacionadoFull = Vocacionado.search(params)
@@ -14,7 +13,7 @@ class VocacionadosController < ApplicationController
 
 
   def generate_registration_form
-    @vocacionado = Vocacionado.find(params[:id])
+    @vocacionado = Vocacionado.find(params[:id])   
 
       output = FichaCadastralVocacionado.new.to_pdf(@vocacionado)
 
@@ -96,7 +95,7 @@ class VocacionadosController < ApplicationController
     respond_to do |format|
       if @vocacionado.update_attributes(params[:vocacionado])
         format.html { redirect_to vocacionados_url }
-         flash[:notice] = "Registro alterado com sucesso!"
+        flash[:notice] = "Registro alterado com sucesso!"
       else
         format.html { render action: "edit" }
         format.json { render json: @vocacionado.errors, status: :unprocessable_entity }

@@ -1,0 +1,24 @@
+<%= form_tag(usuarios_path, :method => "post" , :id => "usuarios_search") do %> 
+<table style="width:600px;" width="872" height="30" class="textof" border="0" cellpadding="0" cellspacing="0">
+<tr>
+	<td colspan="6">		
+		<%= label_tag(:with_name, "Qual o nome do usuário?", :style => "text-align:left") %>		
+	</td>	
+</tr>
+<tr >
+	<td>
+		<%= text_field_tag(:with_name, nil, :class => "estilo_caixa blur",:style => "width:168px; height: 18px;") %>
+    	<div style="float:right; margin-left:-20px; ">
+      		<%= image_submit_tag "pesquisar.jpg", :class => "cursor", :style => "margin-top:-7px;margin-right:0px;border:0px;", :border => "0" %>
+    	</div>
+  </td>
+	<td style="width:315px">&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+</tr>
+</table>
+<% end %> 
+<br />
+<br />

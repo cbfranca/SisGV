@@ -57,6 +57,7 @@ SisGV::Application.routes.draw do  resources :vocacionados
   # Note: This route will make all actions in every controller accessible via GET requests.
   
   resources :observacao_vocacionados
+  resources :usuarios
 
   get '/estados/:estado_id/cidades', :to => 'cidades#index'  
 
@@ -64,6 +65,7 @@ SisGV::Application.routes.draw do  resources :vocacionados
 
   match "generate_labels" => "vocacionados#generate_labels"
   match "generate_list" => "vocacionados#generate_list"
+  
 
 
 

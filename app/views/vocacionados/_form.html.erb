@@ -11,7 +11,7 @@
   <tr>
     <td colspan="3" style="width:121px;">
       <div>
-        <%= f.text_field(:nome, :class => "estilo_caixa blur", :style => "width:328px; height:18px;") %>
+        <%= f.text_field(:nome, :class => "estilo_caixa blur", :maxlengh => 255 , :style => "width:328px; height:18px;") %>
       </div>
     </td>
   </tr>
@@ -47,7 +47,7 @@
   <tr>
     <td colspan="3"  style="width:121px;">
       <div>
-          <%= f.text_field :endereco , :class => "estilo_caixa blur",  :style => "width:328px; height: 18px;"  %>  
+          <%= f.text_field :endereco , :class => "estilo_caixa blur", :maxlengh => 255 , :style => "width:328px; height: 18px;"  %>  
       </div>
     </td>
   </tr>
@@ -68,12 +68,12 @@
   <tr>
     <td colspan="3"  style="width:80px;">
       <div>
-        <%= f.text_field(:bairro, :class => "estilo_caixa blur", :style => "width: 240px; height: 18px;") %>
+        <%= f.text_field(:bairro, :class => "estilo_caixa blur", :maxlengh => 255 ,:style => "width: 240px; height: 18px;") %>
       </div>
     </td>
     <td  style="width:190px;">
       <div style="margin-left:-100px;padding-left:30%">
-        <%= f.text_field(:cep , :class => "estilo_caixa blur" , :style => "width:170px; height: 18px;") %>
+        <%= f.text_field(:cep , :class => "estilo_caixa blur", :maxlengh => 9 , :style => "width:170px; height: 18px;") %>
       </div>
     </td>
   </tr>
@@ -85,7 +85,7 @@
   <tr>
     <td colspan="3"  style="width:121px;">
       <div>
-        <%= f.text_field :complemento_endereco, :class => "estilo_caixa blur", :style => "width:328px; height: 18px;" %>
+        <%= f.text_field :complemento_endereco, :class => "estilo_caixa blur", :maxlengh => 255 ,:style => "width:328px; height: 18px;" %>
       </div>
     </td>
   </tr>
@@ -124,12 +124,12 @@
   <tr>
     <td colspan="3"  style="width:80px;">
       <div>
-        <%= f.text_field :telefone_residencial,:class=>"estilo_caixa blur", :style => "width: 240px; height: 18px;" %>
+        <%= f.text_field :telefone_residencial,:class=>"estilo_caixa blur", :maxlengh => 13 ,:style => "width: 240px; height: 18px;" %>
       </div>
     </td>
     <td>
       <div style="margin-left:-100px;padding-left:30%">
-         <%= f.text_field :celular, :class => "estilo_caixa blur", :style => "width:170px; height: 18px;" %>
+         <%= f.text_field :celular, :class => "estilo_caixa blur", :maxlengh => 13 ,:style => "width:170px; height: 18px;" %>
       </div>
     </td>
   </tr>
