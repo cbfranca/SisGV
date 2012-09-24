@@ -23,34 +23,27 @@ class FichaCadastralVocacionado < Prawn::Document
        
     move_down 40
     fill_color "40464e"
-    text "Fica cadastral de Vocacionado", :size => 18, :style => :bold, :align => :center
+    text "Ficha cadastral de Vocacionado", :size => 18, :style => :bold, :align => :center
     
     move_down 30
     text "Nome: #{@vocacionado.nome}", :inline_format => true
 
     move_down 15
-    text "Nascimento: #{@vocacionado.nascimento}", :inline_format => true
+    text "Nascimento: #{@vocacionado.nascimento.strftime("%d/%m/%Y")  }", :inline_format => true
 
     move_down 15
     text "Escolaridade: #{@vocacionado.escolaridade}", :inline_format => true
 
     move_down 15
-    text "Endereço: #{@vocacionado.endereco}", :inline_format => true
-
-    move_down 15
-    text "Bairro: #{@vocacionado.bairro}", :inline_format => true
+    text "Endereço: #{@vocacionado.endereco} , #{@vocacionado.bairro}, #{Cidade.find(@vocacionado.cidade_id).nome} , #{Estado.find(@vocacionado.cod_estado).nome} " , :inline_format => true    
 
     move_down 15
     text "CEP: #{@vocacionado.cep}", :inline_format => true
 
-    move_down 15
-    text "Complemento: #{@vocacionado.complemento_endereco}", :inline_format => true
-
-    move_down 15
-    text "Estado: #{Estado.find(@vocacionado.cod_estado).nome}", :inline_format => true
-
-    move_down 15
-    text "Cidade: #{Cidade.find(@vocacionado.cidade_id).nome}", :inline_format => true
+    if !@vocacionado.complemento_endereco.empty?
+        move_down 15
+        text "Complemento: #{@vocacionado.complemento_endereco}", :inline_format => true
+    end   
 
     move_down 15
     text "Telefone residencial: #{@vocacionado.telefone_residencial}", :inline_format => true
@@ -61,8 +54,13 @@ class FichaCadastralVocacionado < Prawn::Document
     move_down 15
     text "E-mail: #{@vocacionado.email}", :inline_format => true
 
-    move_down 15
-    text "Primeiro contato: #{@vocacionado.primeiro_contato}", :inline_format => true
+    if !@vocacionado.primeiro_contato.nil?
+      move_down 15
+      text "Primeiro contato: #{@vocacionado.primeiro_contato.strftime("%d/%m/%Y")}", :inline_format => true
+    else
+      move_down 15
+      text "Primeiro contato: Ainda não foi feito nenhum contato. ", :inline_format => true
+    end
 
     render
   end

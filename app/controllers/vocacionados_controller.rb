@@ -6,7 +6,7 @@ class VocacionadosController < ApplicationController
 
   def index
     session[:filtro_busca] = nil
-    @vocacionadoFull = Vocacionado.search(params)
+    @vocacionadoFull = Vocacionado.search(params).where(" cod_estado is not null and cidade_id is not null ")
     @vocacionado = Vocacionado.search(params).paginate(:per_page => 5, :page => params[:page])
     session[:filtro_busca] = @vocacionadoFull
   end
@@ -44,13 +44,15 @@ class VocacionadosController < ApplicationController
   def generate_list
     @vocacionado = session[:filtro_busca]
 
-    output = ListagemVocacionados.new.to_pdf(@vocacionado)
+    output = ListagemVocacionados.new(@vocacionado)
 
     respond_to do |format|
    
       format.pdf do         
-        send_data output, :filename => "listagem_vocacionados#{DateTime.now}.pdf",
-                          :type => "application/pdf"        
+        send_data output.render, 
+                            :filename => "listagem_vocacionados#{DateTime.now}.pdf",
+                            :type => "application/pdf",
+                            :disposition => "inline"        
       end
     end
   end

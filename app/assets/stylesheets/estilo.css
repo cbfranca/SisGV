@@ -96,6 +96,8 @@ h4{
 	font-family: "Trebuchet MS", Arial, Verdana;;
 	font-size:13px;
 	color: #F00;
+	padding-right: 34px;
+
 }
 .textof{
 	clear: both;
@@ -272,6 +274,7 @@ noindex:-o-prefocus,  .select {
 .cursor{
 	cursor:pointer;
 }
+
 .border_gradient {
 	border-image: url(borda_conteudo.png) 1 1 0 0 stretch;
 	-moz-border-image: url(borda_conteudo.png) 1 1 0 0 stretch;
@@ -384,7 +387,17 @@ input.blur {
 	position: absolute;
 	right: 10px;
 	top: 9px;
+	right: -100px;
 	margin: 0;
 	padding: 0;
 	font-size: small;	
 }
+
+a:link {
+	color: #F00;
+}
+a:visited {
+	color: #F00;
+}
+
+

@@ -17,11 +17,11 @@
 <div  style="float:right; width:476px; padding-right:45px;">
     <div style="float:left; padding-left:239px;">       
 
-      <%= link_to image_tag("gerar_listagem_icon.png", :alt => "Gerar listagem de Vocacionado", :class => "cursor", :style => " border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0"), :action => :generate_list,  :format => 'pdf' %>
+      <%= link_to image_tag("gerar_listagem_icon.png", :alt => "Gerar listagem de Vocacionado", :class => "cursor", :style => " border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0"), :controller => :vocacionados, :action => :generate_list,  :format => 'pdf' %>
    </div>
     <div style="float:right;padding-right:-67px;">
 
-       <%= link_to image_tag("gerar_etiquetas_icon.png", :alt => "Gerar etiquetas de  Vocacionado", :class => "cursor", :style => " border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0") , :action => :generate_labels,  :format => 'pdf' %>
+       <%= link_to image_tag("gerar_etiquetas_icon.png", :alt => "Gerar etiquetas de  Vocacionado", :class => "cursor", :style => " border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0"), :controller => :vocacionados, :action => :generate_labels,  :format => 'pdf' %>
     </div>
 </div>
 

@@ -44,7 +44,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario }
+        format.html { redirect_to usuarios_url }
         flash[:notice] = "Usuário cadastrado com sucesso!"
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.update_attributes(params[:usuario])
-        format.html { redirect_to @usuario }
+        format.html { redirect_to usuarios_url }
         flash[:notice] = "Usuário alterado com sucesso!"
       else
         format.html { render action: "edit" }

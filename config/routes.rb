@@ -59,12 +59,16 @@ SisGV::Application.routes.draw do  resources :vocacionados
   resources :observacao_vocacionados
   resources :usuarios
 
+
   get '/estados/:estado_id/cidades', :to => 'cidades#index'  
 
-  match  ':controller(/:action(/:id))(.:format)'
+  #match  ':controller(/:action(/:id))(.:format)'
 
   match "generate_labels" => "vocacionados#generate_labels"
   match "generate_list" => "vocacionados#generate_list"
+  match "generate_registration_form" => "vocacionados#generate_registration_form"
+  match "login" => "login#login"
+  match "logout" => "login#logout"
   
 
 

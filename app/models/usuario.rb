@@ -9,9 +9,9 @@ class Usuario < ActiveRecord::Base
   validates_presence_of :nome ,  						
   						:email,  											
   						:message => "inválido. Favor preencher corretamente."   
-  validates_presence_of :senha, :if => :password_is_empty?
+  validates_presence_of :senha, :if => :is_password_empty_on_update?
 
-  def password_is_empty?
+  def is_password_empty_on_update?
     if self.senha.empty?
      false
     else

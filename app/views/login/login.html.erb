@@ -1,19 +1,50 @@
-<h1>Login to Site</h1>
+<h2 style="margin-top:20px;margin-left:94px">Por favor entre com os dados para acessar o sistema:</h2>
 
 <%= form_tag(:action => "login" ) do %> 
 
 <%= flash_message %>
 
-<p>Please, enter your login and password to authenticate to this site:</p>
-<p>
-<label for="email">E-mail:</label><br>
-<%= text_field_tag "email", params[:email], :maxlength => 20 %>
-</p>
-<p>
-<label for="senha">Senha:</label><br>
-<%= password_field_tag "senha", "", :maxlength => 10 %>
-</p>
-<p>
-<%= submit_tag "Enter" %>
-</p>
+<table style="width:600px; padding-left:190px;padding-top:65px" width="572" height="30" class="textof" border="0" cellpadding="0" cellspacing="0">
+   <tr>
+     <td ><span style="text-align:left;">E-mail:</span></td>
+   </tr>
+   <tr>
+     <td >&nbsp;</td>
+   </tr>
+   <tr>
+     <td>
+     <%= text_field_tag "email", params[:email], :maxlength => 20 , :class => "estilo_caixa blur", :style => "width:224px; height: 18px;" %>
+     </td>
+   </tr>
+    <tr>
+     <td style="width:40px">&nbsp;</td>
+   </tr>
+   <tr>
+     <td><span style="text-align:left; ">Senha:</span></td>
+   </tr>
+    <tr>
+     <td >&nbsp;</td>
+   </tr>
+   <tr>
+     <td>                                 	
+     	<%= password_field_tag "senha", "", :maxlength => 10, :class => "estilo_caixa blur", :style => "width:224px; height: 18px;" %>
+     </td>
+   </tr>
+   <tr>
+     <td>&nbsp;</td>
+   </tr>
+ </table>
+<div  style="float:center; width:476px;margin-left:-75px;padding-top:32px">
+<div style="float:left; padding-left:288px;">
+ 
+        <%= image_submit_tag "acessar.png", :class => "cursor", :style=>"width:83px; height:27px; border:0px solid #ddd; padding: 0px 0px 0px 0px",  :border=>"0" %>
+     </div>
+      <div style="float:right; ">
+      	 <h4><%= link_to 'Cancelar', usuarios_path , :class=>"cursor"%></h4>            
+      </div>	
+</div>
+
 <% end %>
+
+
+                  

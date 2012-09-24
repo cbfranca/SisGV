@@ -11,12 +11,12 @@ class Vocacionado < ActiveRecord::Base
 
   #Validações
   validates_presence_of :nome ,
-  						:bairro, 
-  						:cep, 
-  						:cidade_id, 
-  						:cod_estado, 
-  						:endereco,
-  						:nascimento,  						
+  						# :bairro, 
+  						# :cep, 
+  						# :cidade_id, 
+  						# :cod_estado, 
+  						# :endereco,
+  						# :nascimento,  						
   						:message => "inválido. Favor preencher corretamente."     
   
   scope :with_name, lambda {|parameter| where("nome like ?", "%#{parameter}%")}     
