@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920045124) do
+ActiveRecord::Schema.define(:version => 20120924212903) do
 
   create_table "cidades", :force => true do |t|
     t.string   "nome"
@@ -48,11 +48,30 @@ ActiveRecord::Schema.define(:version => 20120920045124) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "usuarios", :force => true do |t|
-    t.string   "nome"
-    t.string   "email"
+    t.string   "nome",       :limit => 200
+    t.string   "email",      :limit => 200
     t.string   "senha"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "vocacionadas", :force => true do |t|
+    t.string   "nome"
+    t.date     "nascimento"
+    t.string   "escolaridade"
+    t.string   "endereco"
+    t.string   "bairro"
+    t.string   "cep"
+    t.string   "complemento_endereco"
+    t.integer  "cod_estado"
+    t.integer  "cidade_id"
+    t.string   "telefone_residencial"
+    t.string   "celular"
+    t.string   "email"
+    t.date     "primeiro_contato"
+    t.boolean  "ativo"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "vocacionados", :force => true do |t|
@@ -61,17 +80,17 @@ ActiveRecord::Schema.define(:version => 20120920045124) do
     t.string  "escolaridade"
     t.string  "endereco"
     t.string  "bairro"
-    t.string  "cep"
+    t.string  "cep",                  :limit => 9
     t.string  "complemento_endereco"
     t.integer "cod_estado"
     t.integer "cidade_id"
-    t.string  "telefone_residencial"
-    t.string  "celular"
+    t.string  "telefone_residencial", :limit => 13
+    t.string  "celular",              :limit => 13
     t.string  "email"
     t.date    "primeiro_contato"
     t.boolean "ativo"
-    t.date    "created_at",           :null => false
-    t.date    "updated_at",           :null => false
+    t.date    "created_at",                         :null => false
+    t.date    "updated_at",                         :null => false
   end
 
 end

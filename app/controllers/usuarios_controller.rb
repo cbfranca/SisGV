@@ -2,6 +2,8 @@
 
 class UsuariosController < ApplicationController
 
+  #TODO Criar atualização de conta de usuário logado
+
   # GET /usuarios
   # GET /usuarios.json
   def index

@@ -1,0 +1,32 @@
+<table style="width:600px;" class="textof" border="0" cellpadding="6" cellspacing="0">    
+  <% @vocacionada.each do |vocacionada| %>
+    <tr>        
+        <td><%= vocacionada.nome %></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>        
+        <td>Cadastrado em <%= l vocacionada.created_at, :format => :default %></td>    
+        <% if vocacionada.primeiro_contato.nil? %>
+            <td>Nenhum contato feito</td>
+        <% else %>
+        <td>Contato em <%= l(vocacionada.primeiro_contato, :format => :default)  if !vocacionada.primeiro_contato.nil?%>
+        </td>    
+        <% end %>
+        <td class="cursor">
+            <%= link_to image_tag("alterar_icon.png"), edit_vocacionada_path(vocacionada) %>                
+        </td>
+        <td class="cursor">
+            <%= link_to link_to image_tag("print_icon.png"), {:action => :generate_registration_form, :id => vocacionada, :format => 'pdf'} , :target => "_blank" %>
+        </td>
+        <td class="cursor">                
+            <%= link_to image_tag("obs_icon.png",:alt => "Gerenciar as observações desta vocacionada"), :controller => "observacao_vocacionadas",:action => "index", :vocacionada => vocacionada  %>
+        </td>
+    </tr>                 
+<% end %>
+</table>
+<br/>
+<%= will_paginate @vocacionada, 
+:previous_label => 'Anterior',
+:separator => '|',
+:next_label => 'Próximo',
+:param_name => 'page'
+%>
+<br><br>   

@@ -1,18 +1,17 @@
 #encoding: utf-8
 
-class Vocacionado < ActiveRecord::Base
+class Vocacionada < ActiveRecord::Base
   attr_accessible :ativo, :bairro, :celular, :cep, :cidade_id, :escolaridade, :cod_estado, :complemento_endereco, :email, :endereco, :nascimento, :nome, :primeiro_contato, :telefone_residencial
 
   #Relacionamentos
   belongs_to :estado
   belongs_to :cidade
-  has_many :observacao_vocacionados
-  
 
   #Validações
   validates_presence_of :nome ,  						 						
-  						:message => "inválido. Favor preencher corretamente."     
-  
+  						:message => "inválido. Favor preencher corretamente."
+
+
   scope :with_name, lambda {|parameter| where("nome like ?", "%#{parameter}%")}     
   scope :with_birthday_month, lambda {|parameter| where("month(nascimento) = ?", parameter)}
   scope :with_neighborhood, lambda {|parameter| where("bairro = ?", parameter)}
@@ -29,5 +28,6 @@ class Vocacionado < ActiveRecord::Base
       end
     end
     vocacionado_query
-  end  			
+  end  
+
 end
