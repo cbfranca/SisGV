@@ -6,6 +6,7 @@ class Vocacionada < ActiveRecord::Base
   #Relacionamentos
   belongs_to :estado
   belongs_to :cidade
+    has_many :observacao_vocacionadas
 
   #Validações
   validates_presence_of :nome ,  						 						
@@ -21,13 +22,13 @@ class Vocacionada < ActiveRecord::Base
   scope :with_dead_file, lambda {|parameter| where(" ativo = ?", 0) if parameter.present? }
 
   def self.search(parameters)
-    vocacionado_query = self.scoped
+    vocacionada_query = self.scoped
     parameters.each do |parameter, value|
-      if not value.empty? and vocacionado_query.respond_to? parameter
-       vocacionado_query = vocacionado_query.send(parameter, value) 
+      if not value.empty? and vocacionada_query.respond_to? parameter
+       vocacionada_query = vocacionada_query.send(parameter, value) 
       end
     end
-    vocacionado_query
+    vocacionada_query
   end  
 
 end

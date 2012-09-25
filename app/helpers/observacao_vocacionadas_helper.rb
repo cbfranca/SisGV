@@ -1,0 +1,2 @@
+module ObservacaoVocacionadasHelper
+end

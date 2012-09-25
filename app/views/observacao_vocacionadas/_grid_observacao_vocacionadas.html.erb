@@ -1,0 +1,22 @@
+<table style="width:600px;" width="872" height="30" class="textof" border="0" cellpadding="6" cellspacing="0">
+	<% @observacao_vocacionadas.each do |observacao_vocacionada| %>
+	  <tr>
+		<td><%= observacao_vocacionada.descricao[0..60] %></td>
+	    <td>&nbsp;</td>
+		<td>Ocorrido em <%= l observacao_vocacionada.data, :format => :default %></td> 
+		<td  class="cursor">		
+	 		<%= link_to image_tag("search_icon.png"), observacao_vocacionada_path(observacao_vocacionada) %>
+		</td>
+		<td  class="cursor">		
+	 		<%= link_to image_tag("alterar_icon.png"), edit_observacao_vocacionada_path(observacao_vocacionada) %>
+		</td>
+	   	<td class="cursor">   		
+	   		<%= link_to image_tag("excluir_icon.png"), observacao_vocacionada, method: :delete, data: { confirm: 'Deseja mesmo excluir essa observação?' } %>
+	   	</td>
+	  </tr>	
+	<% end %>			
+</table>
+<%= will_paginate @observacao_vocacionadas %>
+
+<br/><br/><br/>
+<%= link_to image_tag("voltar.png", :alt => "Voltar para página anterior"), :controller => :vocacionadas, :action => :index %>

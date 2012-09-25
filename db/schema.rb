@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924212903) do
+ActiveRecord::Schema.define(:version => 20120925004325) do
 
   create_table "cidades", :force => true do |t|
     t.string   "nome"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20120924212903) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "observacao_vocacionadas", :force => true do |t|
+    t.integer  "vocacionada_id"
+    t.text     "descricao"
+    t.date     "data"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "observacao_vocacionadas", ["vocacionada_id"], :name => "index_observacao_vocacionadas_on_vocacionada_id"
 
   create_table "observacao_vocacionados", :force => true do |t|
     t.integer  "vocacionado_id"
@@ -56,22 +66,22 @@ ActiveRecord::Schema.define(:version => 20120924212903) do
   end
 
   create_table "vocacionadas", :force => true do |t|
-    t.string   "nome"
-    t.date     "nascimento"
-    t.string   "escolaridade"
-    t.string   "endereco"
-    t.string   "bairro"
-    t.string   "cep"
-    t.string   "complemento_endereco"
-    t.integer  "cod_estado"
-    t.integer  "cidade_id"
-    t.string   "telefone_residencial"
-    t.string   "celular"
-    t.string   "email"
-    t.date     "primeiro_contato"
-    t.boolean  "ativo"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.string  "nome"
+    t.date    "nascimento"
+    t.string  "escolaridade"
+    t.string  "endereco"
+    t.string  "bairro"
+    t.string  "cep"
+    t.string  "complemento_endereco"
+    t.integer "cod_estado"
+    t.integer "cidade_id"
+    t.string  "telefone_residencial"
+    t.string  "celular"
+    t.string  "email"
+    t.date    "primeiro_contato"
+    t.boolean "ativo"
+    t.date    "created_at",           :null => false
+    t.date    "updated_at",           :null => false
   end
 
   create_table "vocacionados", :force => true do |t|

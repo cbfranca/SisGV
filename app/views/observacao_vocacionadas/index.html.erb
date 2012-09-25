@@ -1,0 +1,15 @@
+<h2 style="margin-bottom:-20px">Observações de vocacionadas</h2>
+<div  style="float:right; width:245px; padding-right:30px;">
+    <div style="float:left; padding-left:158px;">                                              
+      <%= link_to image_tag("mais.jpg", :style => "border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0"), :action => "new", :vocacionada => params[:vocacionada] %>                        
+    </div>
+</div>
+<%= image_tag("linha.png", :style => "width:588px;") %>
+  <br/>
+  <br/>
+  <%= render 'search_form' %> 
+  
+ <div id="area_tabela" style="margin-left:-31px;" > 
+    <%= render 'grid_observacao_vocacionadas' %> 
+</div>
+<br />
