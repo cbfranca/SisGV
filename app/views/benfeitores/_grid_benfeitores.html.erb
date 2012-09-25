@@ -1,0 +1,32 @@
+<table style="width:600px;" class="textof" border="0" cellpadding="6" cellspacing="0">    
+  <% @benfeitores.each do |benfeitor| %>
+    <tr>        
+        <td><%= benfeitor.nome %></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>        
+        <td>Cadastrado em <%= l benfeitor.created_at, :format => :default %></td>    
+        <% if benfeitor.primeiro_contato.nil? %>
+            <td>Nenhum contato feito</td>
+        <% else %>
+        <td>Contato em <%= l(benfeitor.primeiro_contato, :format => :default)  if !benfeitor.primeiro_contato.nil?%>
+        </td>    
+        <% end %>
+        <td class="cursor">
+            <%= link_to image_tag("alterar_icon.png"), edit_benfeitor_path(benfeitor) %>                
+        </td>
+        <td class="cursor">
+            <%= link_to link_to image_tag("print_icon.png"), {:action => :generate_registration_form, :id => benfeitor, :format => 'pdf'} , :target => "_blank" %>
+        </td>      
+        <td class="cursor">                
+            <%= link_to image_tag("money_add.png",:alt => "Registrar doação"), :controller => "doacoes",:action => "index", :benfeitor => benfeitor  %>
+        </td>
+    </tr>                 
+<% end %>
+</table>
+<br/>
+<%= will_paginate @benfeitor, 
+:previous_label => 'Anterior',
+:separator => '|',
+:next_label => 'Próximo',
+:param_name => 'page'
+%>
+<br><br>   
