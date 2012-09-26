@@ -6,11 +6,12 @@ class ObservacaoVocacionadosController < ApplicationController
 
   def index   
     if params[:vocacionado]
-      @observacao_vocacionados = ObservacaoVocacionado.search(params).where("vocacionado_id = #{params[:vocacionado]}")
-                                                                     .paginate(:per_page => 5, :page => params[:page])    
-    else
-      @observacao_vocacionados = ObservacaoVocacionado.search(params).paginate(:per_page => 5, :page => params[:page])                                                                         
-    end 
+      session[:filtro_obs_vocacionados] = nil
+      session[:filtro_obs_vocacionados] = params[:vocacionado]
+    end
+    
+    @observacao_vocacionados = ObservacaoVocacionado.search(params).where("vocacionado_id = #{session[:filtro_obs_vocacionados]}")
+                                                                     .paginate(:per_page => 5, :page => params[:page])        
   end
 
 
@@ -55,7 +56,7 @@ class ObservacaoVocacionadosController < ApplicationController
         format.html { redirect_to :action => :index, :vocacionado => @observacao_vocacionado.vocacionado_id }        
         flash[:notice] = "Registro criado com sucesso!"
       else
-        format.html { render action: "new" }        
+        format.html { render action: "new", :vocacionado => params[:vocacionado] }        
         flash[:warning] = "Os campos com * são obrigatórios, preencha-os corretamente."
       end
     end
@@ -68,10 +69,10 @@ class ObservacaoVocacionadosController < ApplicationController
 
     respond_to do |format|
       if @observacao_vocacionado.update_attributes(params[:observacao_vocacionado])
-        format.html { redirect_to @observacao_vocacionado}
+        format.html { rredirect_to :action => :index, :vocacionado => @observacao_vocacionado.vocacionado_id}
         flash[:notice] = "Registro alterado com sucesso!"
       else
-        format.html { render action: "edit" }
+        format.html { render action: "edit", :vocacionado => params[:vocacionado]}
         format.json { render json: @observacao_vocacionado.errors, status: :unprocessable_entity }
       end
     end

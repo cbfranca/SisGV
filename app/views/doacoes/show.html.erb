@@ -1,0 +1,25 @@
+<table style="width:600px;" width="872" height="30" class="tableshow" border="0" cellpadding="6" cellspacing="0">
+
+
+<%= flash_message %>
+
+<tr>  
+  <td><h2>Quando foi feita a doação?</h2></td>  
+</tr>
+<tr>
+	<td><%= l @doacao.data, :format => :long %></td>
+</tr>
+<tr>
+  <td>
+  	<h2>Quanto foi doado?</h2>
+  </td>
+</tr>
+<tr>
+  <td><%= @doacao.valor %></td>
+</tr>
+</table>
+<br/>
+<br/>
+
+<%= link_to image_tag("editar.png", :alt => "Editar registro"), edit_doacao_path(@doacao) %> 
+<%= link_to image_tag("voltar.png", :alt => "Voltar para página anterior"), :action => :index , :benfeitor => @doacao.benfeitor_id %>

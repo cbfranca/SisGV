@@ -12,4 +12,6 @@
 # These inflection rules are supported but not enabled by default:
  ActiveSupport::Inflector.inflections do |inflect|
    inflect.irregular 'observacao', 'observacoes'
+   inflect.irregular 'benfeitor', 'benfeitores'
+   inflect.irregular 'doacao', 'doacoes'
  end

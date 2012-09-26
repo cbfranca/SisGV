@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925004325) do
+ActiveRecord::Schema.define(:version => 20120925124232) do
+
+  create_table "benfeitores", :force => true do |t|
+    t.string  "nome"
+    t.date    "nascimento"
+    t.string  "endereco"
+    t.string  "bairro"
+    t.string  "cep"
+    t.string  "complemento_endereco"
+    t.integer "cod_estado"
+    t.integer "cidade_id"
+    t.string  "telefone_residencial"
+    t.string  "celular"
+    t.string  "email"
+    t.date    "primeiro_contato"
+    t.boolean "ativo"
+    t.date    "created_at",           :null => false
+    t.date    "updated_at",           :null => false
+  end
 
   create_table "cidades", :force => true do |t|
     t.string   "nome"
@@ -19,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20120925004325) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "doacoes", :force => true do |t|
+    t.integer  "benfeitor_id"
+    t.decimal  "valor",        :precision => 18, :scale => 2
+    t.date     "data"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
+  add_index "doacoes", ["benfeitor_id"], :name => "index_doacoes_on_benfeitor_id"
 
   create_table "estados", :force => true do |t|
     t.string   "sigla"

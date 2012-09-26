@@ -17,7 +17,7 @@
 <div  style="float:right; width:476px; padding-right:45px;">
     <div style="float:left; padding-left:239px;">       
 
-      <%= link_to image_tag("gerar_listagem_icon.png", :alt => "Gerar listagem de benfeitores", :class => "cursor", :style => " border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0"), :controller => :benfeitores, :action => :generate_list,  :format => 'pdf' %>
+      <%= link_to image_tag("gerar_listagem_icon.png", :alt => "Gerar listagem de benfeitores", :class => "cursor", :style => " border:0px solid #ddd; padding: 0px 0px 0px 0px", :border => "0"), {:controller => :benfeitores, :action => :generate_list,  :format => 'pdf'}, :target => "_blank" %>
    </div>
     <div style="float:right;padding-right:-67px;">
 

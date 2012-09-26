@@ -11,6 +11,7 @@ class BenfeitoresController < ApplicationController
   end
 
   def generate_registration_form
+    
     @benfeitor = Benfeitor.find(params[:id])   
 
       output = FichaCadastralBenfeitor.new.to_pdf(@benfeitor)
@@ -28,7 +29,7 @@ class BenfeitoresController < ApplicationController
   def generate_labels
     @benfeitor = session[:filtro_busca_benfeitor]
 
-    output = EtiquetasBenfeitor.new.to_pdf(@benfeitor)
+    output = EtiquetasBenfeitores.new.to_pdf(@benfeitor)
 
     respond_to do |format|
    
@@ -42,7 +43,7 @@ class BenfeitoresController < ApplicationController
   def generate_list
     @benfeitor = session[:filtro_busca_benfeitor]
 
-    output = ListagemBenfeitor.new(@benfeitor)
+    output = ListagemBenfeitores.new(@benfeitor)
 
     respond_to do |format|
    
@@ -52,17 +53,6 @@ class BenfeitoresController < ApplicationController
                             :type => "application/pdf",
                             :disposition => "inline"        
       end
-    end
-  end
-
-  # GET /benfeitores/1
-  # GET /benfeitores/1.json
-  def show
-    @benfeitor = Benfeitor.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @benfeitor }
     end
   end
 
@@ -108,8 +98,8 @@ class BenfeitoresController < ApplicationController
         format.html { redirect_to benfeitores_url }
         flash[:notice] = "Registro alterado com sucesso!"
       else
-        format.html { render action: "edit" }
-        format.json { render json: @benfeitor.errors, status: :unprocessable_entity }
+        format.html { redirect_to action: "edit" }
+        flash[:warning] = "Os campos com * são obrigatórios, preencha-os corretamente."
       end
     end
   end

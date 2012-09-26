@@ -1,4 +1,7 @@
 <table style="width:600px;" class="textof" border="0" cellpadding="6" cellspacing="0">    
+    <tr>
+        <%= flash_message %>
+    <tr>
   <% @benfeitores.each do |benfeitor| %>
     <tr>        
         <td><%= benfeitor.nome %></td>
