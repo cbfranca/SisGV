@@ -1,0 +1,22 @@
+<table style="width:600px;" width="872" height="30" class="textof" border="0" cellpadding="6" cellspacing="0">
+	<% @doacoes.each do |doacao| %>
+	  <tr>
+		<td>R$ <%= sprintf("%05.2f", doacao.valor.to_s) %></td>
+	    <td>&nbsp;</td>
+		<td>Ocorrido em <%= l doacao.data, :format => :default %></td> 
+		<td  class="cursor">		
+	 		<%= link_to image_tag("search_icon.png"), doacao_path(doacao) %>
+		</td>
+		<td  class="cursor">		
+	 		<%= link_to image_tag("alterar_icon.png"), edit_doacao_path(doacao) %>
+		</td>
+	   	<td class="cursor">   		
+	   		<%= link_to image_tag("excluir_icon.png"), doacao, method: :delete, data: { confirm: 'Deseja mesmo excluir essa doação?' } %>
+	   	</td>
+	  </tr>	
+	<% end %>			
+</table>
+<%= will_paginate @doacoes %>
+
+<br/><br/><br/>
+<%= link_to image_tag("voltar.png", :alt => "Voltar para página anterior"), :controller => :benfeitores, :action => :index %>

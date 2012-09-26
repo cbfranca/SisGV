@@ -5,11 +5,12 @@ class ObservacaoVocacionadasController < ApplicationController
   # GET /observacao_vocacionadas.json
   def index   
     if params[:vocacionada]
-      @observacao_vocacionadas = ObservacaoVocacionada.search(params).where("vocacionada_id = #{params[:vocacionada]}")
-                                                                     .paginate(:per_page => 5, :page => params[:page])    
-    else
-      @observacao_vocacionadas = ObservacaoVocacionada.search(params).paginate(:per_page => 5, :page => params[:page])                                                                         
-    end 
+      session[:filtro_obs_vocacionadas] = nil
+      session[:filtro_obs_vocacionadas] = params[:vocacionada]
+    end
+    
+    @observacao_vocacionadas = ObservacaoVocacionada.search(params).where("vocacionada_id = #{session[:filtro_obs_vocacionadas]}")
+                                                                     .paginate(:per_page => 5, :page => params[:page])       
   end
 
   # GET /observacao_vocacionadas/1

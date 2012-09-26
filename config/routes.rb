@@ -1,5 +1,5 @@
 SisGV::Application.routes.draw do  
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,6 +58,8 @@ SisGV::Application.routes.draw do
   
   resources :vocacionados
   resources :vocacionadas
+  resources :benfeitores
+  resources :doacoes
   resources :observacao_vocacionados
   resources :observacao_vocacionadas
   resources :usuarios
@@ -74,6 +76,10 @@ SisGV::Application.routes.draw do
   match "vocaciondadas/generate_labels" => "vocacionadas#generate_labels"
   match "vocaciondadas/generate_list" => "vocacionadas#generate_list"
   match "vocaciondadas/generate_registration_form" => "vocacionadas#generate_registration_form"
+
+  match "generate_labels" => "benfeitores#generate_labels"
+  match "generate_list" => "benfeitores#generate_list"
+  match "generate_registration_form" => "benfeitores#generate_registration_form"
 
 
   match "login" => "login#login"

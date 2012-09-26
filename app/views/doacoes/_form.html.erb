@@ -1,0 +1,44 @@
+<%= form_for(@doacao) do |f| %>
+
+<br/>
+<%= flash_message %>
+
+<table style="width:455px; height:auto" class="textof" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="3"  style="width:148px;"><h3 style="text-align:left">Quanto foi doado?
+      <span style="color: #F00;"><strong>*</strong></span></h3>
+    </td>        
+  </tr>
+  <tr>
+    <td colspan="3" style="width:121px;">
+      <div>
+        <%= f.hidden_field :benfeitor_id %>        
+        <%= f.text_field(:valor, :class => "estilo_caixa blur", :maxlengh => 17 , :style => "width:168px; height:18px;",:onkeypress => "return BloquearLetras(event)" ) %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"  style="width:148px;"><h3 style="text-align:left">Quando foi doado?
+      <span style="color: #F00;"><strong>*</strong></span></h3>
+    </td>        
+  </tr>
+  <tr>
+    <td colspan="3" style="width:121px;">
+      <div>
+        <%= f.date_select :data  , {:start_year => 1980, :include_blank => true}, {:class => "text_select"} %>
+      </div>
+    </td>
+  </tr>
+ 
+</table>
+ <br><br>
+  <div  style="float:left; width:476px; padding-right:10px; margin-left:-298px">
+    <div style="float:left; padding-left:296px;">       
+      <%= image_submit_tag "salvar.png", :class => "cursor", :style=>"width:83px; height:27px; border:0px solid #ddd; padding: 0px 0px 0px 0px",  :border=>"0" %>
+   </div>
+    <div id="cancelar" style="float:right;">
+      <h4><%= link_to 'Cancelar', doacoes_path , :class=>"cursor"%></h4>
+    </div>
+  </div>  
+
+<% end %>

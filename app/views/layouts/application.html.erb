@@ -5,10 +5,10 @@
   <%= stylesheet_link_tag    "application", "stylesheet" , "estilo", 
   							 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/flick/jquery-ui.css",
   							 :media => "all" %>
-  <%= javascript_include_tag "application",  "vocacionados", "vocacionados",
-                 "observacao_vocacionados","observacao_vocacionados","usuarios",
-                 "jquery_002",  							 
-  							 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js",
+  <%= javascript_include_tag "application",  "vocacionados", "vocacionados","benfeitores",
+                 "observacao_vocacionados","observacao_vocacionados","usuarios","doacoes",
+                 "jquery_002",
+                 "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js",
   							 "https://jquery-ui.googlecode.com/svn/trunk/ui/i18n/jquery.ui.datepicker-pt-BR.js",
                  "http://cloud.github.com/downloads/digitalBush/jquery.maskedinput/jquery.maskedinput-1.3.js" %>
   <%= csrf_meta_tags %>
@@ -28,7 +28,7 @@
   <div id="area_conteudo">
         <div id="area_menu_esq">
            <div id="logo">           
-           <%= image_tag("SantasMissoesPopulares_logo.png", :alt => "Sistema de Gerenciamento de inscritos.") %>	
+           <%= link_to image_tag("SantasMissoesPopulares_logo.png", :alt => "Sistema de Gerenciamento de inscritos.") , :controller => "vocacionados" , :action => "index" %>	
            </div>
 
          <!-- Renderiza menu-->

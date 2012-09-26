@@ -6,7 +6,7 @@ class Vocacionada < ActiveRecord::Base
   #Relacionamentos
   belongs_to :estado
   belongs_to :cidade
-    has_many :observacao_vocacionadas
+  has_many :observacao_vocacionadas
 
   #Validações
   validates_presence_of :nome ,  						 						
