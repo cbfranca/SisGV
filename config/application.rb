@@ -59,6 +59,8 @@ module SisGV
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    config.assets.precompile += ['estilo.css','stylesheet.css','benfeitores.js','custom-form-elements.js','doacoes.js','jquery_002.js','observacao_vocacionadas.js', 'observacao_vocacionados.js', 'usuarios.js','vocaciondas.js','vocacionados.js']
+
     #Aplicando pt-BR
     config.i18n.default_locale = "pt-BR"
 
