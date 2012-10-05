@@ -1,0 +1,4 @@
+2012/09/29 17:09:09 [error] 16784#0: *4 "/home/bazinga/SisGV/app/views/login/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2012/09/29 17:09:12 [error] 16784#0: *5 open() "/home/bazinga/SisGV/app/views/login/public/login" failed (2: No such file or directory), client: 177.183.178.30, server: _, request: "GET /login HTTP/1.1", host: "69.55.59.134:3000"
+2012/09/29 17:09:54 [error] 16869#0: *4 "/home/bazinga/SisGV/app/views/login/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2012/09/29 17:10:02 [error] 16869#0: *5 open() "/home/bazinga/SisGV/app/views/login/public/login" failed (2: No such file or directory), client: 177.183.178.30, server: _, request: "GET /login HTTP/1.1", host: "69.55.59.134:3000"
