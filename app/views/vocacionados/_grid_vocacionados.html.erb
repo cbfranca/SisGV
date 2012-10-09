@@ -23,10 +23,12 @@
 <% end %>
 </table>
 <br/>
-<%= will_paginate @vocacionado, 
-:previous_label => 'Anterior',
-:separator => '|',
-:next_label => 'Próximo',
-:param_name => 'page'
-%>
+
+<div style="padding-left: 420px" class="digg_pagination">
+    <%= will_paginate @vocacionado,    
+    :page_links => false,
+    :previous_label => '&#8592; Anterior',
+    :next_label => 'Próximo  &#8594;'    
+    %>
+</div>
 <br><br>   

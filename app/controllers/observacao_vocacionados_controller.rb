@@ -8,6 +8,8 @@ class ObservacaoVocacionadosController < ApplicationController
     if params[:vocacionado]
       session[:filtro_obs_vocacionados] = nil
       session[:filtro_obs_vocacionados] = params[:vocacionado]
+    else
+      redirect_to :vocacionados, :action => "index"      
     end
     
     @observacao_vocacionados = ObservacaoVocacionado.search(params).where("vocacionado_id = #{session[:filtro_obs_vocacionados]}")

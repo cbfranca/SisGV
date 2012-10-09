@@ -16,7 +16,13 @@
 	  </tr>	
 	<% end %>			
 </table>
-<%= will_paginate @observacao_vocacionadas %>
+<div style="padding-left: 420px" class="digg_pagination">
+    <%= will_paginate @observacao_vocacionadas,    
+    :page_links => false,
+    :previous_label => '&#8592; Anterior',
+    :next_label => 'Próximo  &#8594;'    
+    %>
+</div>
 
 <br/><br/><br/>
 <%= link_to image_tag("voltar.png", :alt => "Voltar para página anterior"), :controller => :vocacionadas, :action => :index %>

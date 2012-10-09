@@ -7,7 +7,10 @@ class DoacoesController < ApplicationController
     if params[:benfeitor]
       session[:filtro_doacao] = nil
       session[:filtro_doacao] = params[:benfeitor]
+    else
+      redirect_to :benfeitores, :action => "index"
     end
+
     
     @doacoes = Doacao.search(params).where("benfeitor_id = #{session[:filtro_doacao]}")
                                                                      .paginate(:per_page => 5, :page => params[:page])    
