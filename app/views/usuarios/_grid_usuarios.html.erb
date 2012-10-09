@@ -13,4 +13,10 @@
 	  </tr>	
 	<% end %>			
 </table>
-<%#= will_paginate @usuarios %>
+<div style="padding-left: 420px" class="digg_pagination">
+    <%= will_paginate @usuarios,    
+    :page_links => false,
+    :previous_label => '&#8592; Anterior',
+    :next_label => 'Próximo  &#8594;'    
+    %>
+</div>

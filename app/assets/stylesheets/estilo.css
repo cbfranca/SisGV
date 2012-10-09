@@ -275,16 +275,6 @@ noindex:-o-prefocus,  .select {
 	cursor:pointer;
 }
 
-.border_gradient {
-	border-image: url(borda_conteudo.png) 1 1 0 0 stretch;
-	-moz-border-image: url(borda_conteudo.png) 1 1 0 0 stretch;
-	-webkit-border-image:url(borda_conteudo.png) 1 1 0 0 stretch;
-	-o-border-image:url(borda_conteudo.png) 1 1 0 0 stretch; 
-	border-image-source:url(borda_conteudo.png);
-	border-image-width:1px;
-	border-width:1px;
-	height:600px;
-}
 #footer{
 	clear:both;
 	position:relative;
