@@ -14,13 +14,13 @@
         </td>    
         <% end %>
         <td class="cursor">
-            <%= link_to image_tag("alterar_icon.png"), edit_benfeitor_path(benfeitor) %>                
+            <%= link_to image_tag("alterar_icon.png"), edit_benfeitor_path(benfeitor), :title => "Editar dados cadastrais deste benfeitor." %>                
         </td>
         <td class="cursor">
-            <%= link_to link_to image_tag("print_icon.png"), {:action => :generate_registration_form, :id => benfeitor, :format => 'pdf'} , :target => "_blank" %>
+            <%= link_to link_to image_tag("print_icon.png"), {:action => :generate_registration_form, :id => benfeitor, :format => 'pdf'} ,:title => "Gerar ficha cadastral deste benfeitor para impressão.", :target => "_blank" %>
         </td>      
         <td class="cursor">                
-            <%= link_to image_tag("money_add.png",:alt => "Registrar doação"), :controller => "doacoes",:action => "index", :benfeitor => benfeitor  %>
+            <%= link_to image_tag("money_add.png"), {:controller => "doacoes",:action => "index", :benfeitor => benfeitor},:title => "Gerenciar as doações deste benfeitor"  %>
         </td>
     </tr>                 
 <% end %>

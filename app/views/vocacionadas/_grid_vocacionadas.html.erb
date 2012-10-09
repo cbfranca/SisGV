@@ -11,13 +11,13 @@
         </td>    
         <% end %>
         <td class="cursor">
-            <%= link_to image_tag("alterar_icon.png"), edit_vocacionada_path(vocacionada) %>                
+            <%= link_to image_tag("alterar_icon.png"), edit_vocacionada_path(vocacionada) ,:title => "Editar dados cadastrais desta vocacionada."%>
         </td>
         <td class="cursor">
-            <%= link_to link_to image_tag("print_icon.png"), {:action => :generate_registration_form, :id => vocacionada, :format => 'pdf'} , :target => "_blank" %>
+            <%= link_to link_to image_tag("print_icon.png"), {:action => :generate_registration_form, :id => vocacionada, :format => 'pdf'} , :title => "Gerar ficha cadastral desta vocacionada para impressão.", :target => "_blank" %>
         </td>
         <td class="cursor">                
-            <%= link_to image_tag("obs_icon.png",:alt => "Gerenciar as observações desta vocacionada"), :controller => "observacao_vocacionadas",:action => "index", :vocacionada => vocacionada  %>
+            <%= link_to image_tag("obs_icon.png"), {:controller => "observacao_vocacionadas",:action => "index", :vocacionada => vocacionada}, :title => "Gerenciar as observações desta vocacionada"  %>
         </td>
     </tr>                 
 <% end %>

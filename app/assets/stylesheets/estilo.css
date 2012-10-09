@@ -390,4 +390,6 @@ a:visited {
 	color: #F00;
 }
 
-
+img {
+   border: none;
+}

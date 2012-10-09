@@ -5,13 +5,13 @@
 	    <td>&nbsp;</td>
 		<td>Ocorrido em <%= l observacao_vocacionado.data, :format => :default %></td> 
 		<td  class="cursor">		
-	 		<%= link_to image_tag("search_icon.png"), observacao_vocacionado_path(observacao_vocacionado) %>
+	 		<%= link_to image_tag("search_icon.png"), observacao_vocacionado_path(observacao_vocacionado), :title => "Visualizar esta observação"  %>
 		</td>
 		<td  class="cursor">		
-	 		<%= link_to image_tag("alterar_icon.png"), edit_observacao_vocacionado_path(observacao_vocacionado) %>
+	 		<%= link_to image_tag("alterar_icon.png"), edit_observacao_vocacionado_path(observacao_vocacionado) , :title => "Editar esta observação"%>
 		</td>
 	   	<td class="cursor">   		
-	   		<%= link_to image_tag("excluir_icon.png"), observacao_vocacionado, method: :delete, data: { confirm: 'Deseja mesmo excluir essa observação?' } %>
+	   		<%= link_to image_tag("excluir_icon.png"), observacao_vocacionado, method: :delete, data: { confirm: 'Deseja mesmo excluir essa observação?' } , :title => "Excluir esta observação" %>
 	   	</td>
 	  </tr>	
 	<% end %>			
