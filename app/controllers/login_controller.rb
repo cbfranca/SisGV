@@ -18,6 +18,10 @@ class LoginController < ApplicationController
 			else
 			  flash[:error] = "Falha ao efetuar o login. E-mail e/ou Senha inválido(s)."
 			end
+		else
+			if session[:usuario_logado]
+				redirect_to :controller => "vocacionados"
+			end
 		end
 	end
 
