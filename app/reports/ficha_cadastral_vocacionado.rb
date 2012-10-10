@@ -29,7 +29,12 @@ class FichaCadastralVocacionado < Prawn::Document
     text "Nome: #{@vocacionado.nome}", :inline_format => true
 
     move_down 15
-    text "Nascimento: #{@vocacionado.nascimento.strftime("%d/%m/%Y")  }", :inline_format => true
+    
+    if !@vocacionado.nascimento.nil?      
+      text "Nascimento: #{@vocacionado.nascimento.strftime("%d/%m/%Y") || "" }", :inline_format => true
+    else
+      text "Nascimento:", :inline_format => true
+    end
 
     move_down 15
     text "Escolaridade: #{@vocacionado.escolaridade}", :inline_format => true
