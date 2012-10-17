@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>  
   <title>SisGV</title>
@@ -29,7 +29,7 @@
   <div id="area_conteudo">
         <div id="area_menu_esq">
            <div id="logo">           
-           <%= link_to image_tag("SantasMissoesPopulares_logo.png", :alt => "Sistema de Gerenciamento de inscritos.") , :controller => "vocacionados" , :action => "index" %>	
+           <%= link_to image_tag("SantasMissoesPopulares_logo.png", :alt => "Sistema de Gerenciamento de inscritos.", :border => "0") , :controller => "vocacionados" , :action => "index" %>	
            </div>
 
          <!-- Renderiza menu-->
@@ -45,7 +45,7 @@
             <div>
               <% if session_user %>
               <p id="logout">              
-                <%= link_to image_tag("sair.png"), :controller => "login", :action => "logout" %>
+                <%= link_to image_tag("sair.png",:border => "0"), :controller => "login", :action => "logout" %>
               </p>
               <% end %>
             </div>
@@ -59,7 +59,7 @@
 <div id="footer">
         <div id="info_footer">
            <div style="margin-right:200px; margin-left:200px">
-               <%= image_tag("huge_logo.png", :align => "center") %>
+               <%= image_tag("huge_logo.png", :align => "center",:border => "0") %>
                	<p class="texto_rodape">Copyright © 2012 - Todos os direitos reservados</p>
            </div>
         </div>    

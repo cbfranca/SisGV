@@ -7,9 +7,7 @@ class ObservacaoVocacionadosController < ApplicationController
   def index   
     if params[:vocacionado]
       session[:filtro_obs_vocacionados] = nil
-      session[:filtro_obs_vocacionados] = params[:vocacionado]
-    else
-      redirect_to :vocacionados, :action => "index"      
+      session[:filtro_obs_vocacionados] = params[:vocacionado]    
     end
     
     @observacao_vocacionados = ObservacaoVocacionado.search(params).where("vocacionado_id = #{session[:filtro_obs_vocacionados]}")

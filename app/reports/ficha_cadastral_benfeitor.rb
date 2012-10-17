@@ -32,7 +32,17 @@ class FichaCadastralBenfeitor < Prawn::Document
     text "Nascimento: #{@benfeitor.nascimento.strftime("%d/%m/%Y")  }", :inline_format => true
 
     move_down 15
-    text "Endereço: #{@benfeitor.endereco} , #{@benfeitor.bairro}, #{Cidade.find(@benfeitor.cidade_id).nome} , #{Estado.find(@benfeitor.cod_estado).nome} " , :inline_format => true    
+
+    if !@benfeitor.cidade_id.nil?      
+      cidade = Cidade.find(@benfeitor.cidade_id).nome
+    end
+
+    if !@benfeitor.cod_estado.nil?      
+      estado = Estado.find(@benfeitor.cod_estado).nome
+    end
+
+
+    text "Endereço: #{@benfeitor.endereco} , #{@benfeitor.bairro}, #{cidade} , #{estado} " , :inline_format => true    
 
     move_down 15
     text "CEP: #{@benfeitor.cep}", :inline_format => true
