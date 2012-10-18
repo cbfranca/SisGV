@@ -83,9 +83,4 @@ SisGV::Application.routes.draw do
 
   match "login" => "login#login"
   match "logout" => "login#logout"
-  
-
-
-
-
 end

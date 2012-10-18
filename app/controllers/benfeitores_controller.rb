@@ -20,8 +20,7 @@ class BenfeitoresController < ApplicationController
      
         format.pdf do         
           send_data output, :filename => "benfeitor#{@benfeitor.created_at.strftime("%d/%m/%Y")}.pdf",
-                            :type => "application/pdf",
-                            :disposition => "inline"
+                            :type => "application/pdf"                            
         end
       end  
   end
@@ -50,8 +49,7 @@ class BenfeitoresController < ApplicationController
       format.pdf do         
         send_data output.render, 
                             :filename => "listagem_benfeitores#{DateTime.now}.pdf",
-                            :type => "application/pdf",
-                            :disposition => "inline"        
+                            :type => "application/pdf"                                  
       end
     end
   end

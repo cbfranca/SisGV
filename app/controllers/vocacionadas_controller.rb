@@ -19,8 +19,7 @@ class VocacionadasController < ApplicationController
      
         format.pdf do         
           send_data output, :filename => "vocacionada_#{@vocacionada.created_at.strftime("%d/%m/%Y")}.pdf",
-                            :type => "application/pdf",
-                            :disposition => "inline"
+                            :type => "application/pdf"                            
         end
       end  
   end
@@ -49,8 +48,7 @@ class VocacionadasController < ApplicationController
       format.pdf do         
         send_data output.render, 
                             :filename => "listagem_vocacionadas#{DateTime.now}.pdf",
-                            :type => "application/pdf",
-                            :disposition => "inline"        
+                            :type => "application/pdf"                                  
       end
     end
   end
