@@ -5,7 +5,7 @@ class VocacionadosController < ApplicationController
   # GET /vocacionados.json
 
   def index
-    session[:filtro_busca] = nil
+    session[:filtro_busca] = nil        
     @vocacionadoFull = Vocacionado.search(params).where(" cod_estado is not null and cidade_id is not null ")
     @vocacionado = Vocacionado.search(params).paginate(:per_page => 5, :page => params[:page])
     session[:filtro_busca] = @vocacionadoFull

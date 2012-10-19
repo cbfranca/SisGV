@@ -21,8 +21,8 @@ class Benfeitor < ActiveRecord::Base
   scope :with_name, lambda {|parameter| where("nome like ?", "%#{parameter}%")}     
   scope :with_birthday_month, lambda {|parameter| where("month(nascimento) = ?", parameter)}
   scope :with_neighborhood, lambda {|parameter| where("bairro = ?", parameter)}
-  scope :benfeitor_cod_estado, lambda {|parameter| where("cod_estado = ?", parameter)}
-  scope :benfeitor_cidade_id, lambda {|parameter| where("cidade_id = ?", parameter)}
+  scope :benfeitor_cod_estado, lambda {|parameter| where("cod_estado = ?", parameter)}  
+  scope :benfeitor_cidade_id, lambda {|parameter| where("cidade_id like ?", "%#{parameter}%")}     
   scope :with_birthday, lambda {|parameter| where(" month(now()) =  month(nascimento)") if parameter.present? }
   scope :with_dead_file, lambda {|parameter| where(" ativo = ?", 0) if parameter.present? }
 

@@ -15,17 +15,6 @@
       );  
     });
     
-
-    $('#vocacionada_cod_estado').change(function(){ 
-      $.getJSON("/estados/" + $(this).val() + '/cidades.json', function(data) {
-        $('#vocacionada_cidade_id').empty();                
-        $('#vocacionada_cidade_id').append(new Option('Selecione', '', true, true));
-        $.each(data, function(i,item){ 
-          $('#vocacionada_cidade_id').append('<option value="' + item.id + '">' + item.nome + '</option>');
-        });        
-      });
-    });    
-
     $("#vocacionadas_search").submit(function(){
 
       $.get(this.action, $(this).serialize(), null, "script");      

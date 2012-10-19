@@ -1,6 +1,7 @@
 <table style="width:600px;" class="textof" border="0" cellpadding="6" cellspacing="0">    
+    <%= @teste %>
   <% @vocacionado.each do |vocacionado| %>
-    <tr>        
+    <tr>                
         <td><%= vocacionado.nome %></td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>        
         <td>Cadastrado em <%= l vocacionado.created_at, :format => :default %></td>    
