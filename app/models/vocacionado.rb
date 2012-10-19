@@ -17,7 +17,7 @@ class Vocacionado < ActiveRecord::Base
   scope :with_birthday_month, lambda {|parameter| where("month(nascimento) = ?", parameter)}
   scope :with_neighborhood, lambda {|parameter| where("bairro = ?", parameter)}
   scope :vocacionado_cod_estado, lambda {|parameter| where("cod_estado = ?", parameter)}
-  scope :vocacionado_cidade_id, lambda {|parameter| where("cidade_id = ?", parameter)}
+  scope :vocacionado_cidade_id, lambda {|parameter| where("cidade_id like ?", "%#{parameter}%")}       
   scope :with_birthday, lambda {|parameter| where(" month(now()) =  month(nascimento)") if parameter.present? }
   scope :with_dead_file, lambda {|parameter| where(" ativo = ?", 0) if parameter.present? }
 

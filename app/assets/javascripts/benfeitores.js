@@ -13,18 +13,8 @@
           return false;  
         }  
       );  
-    });
-    
-
-    $('#benfeitor_cod_estado').change(function(){ 
-      $.getJSON("/estados/" + $(this).val() + '/cidades.json', function(data) {
-        $('#benfeitor_cidade_id').empty();                
-        $('#benfeitor_cidade_id').append(new Option('Selecione', '', true, true));
-        $.each(data, function(i,item){ 
-          $('#benfeitor_cidade_id').append('<option value="' + item.id + '">' + item.nome + '</option>');
-        });        
-      });
-    });    
+    });   
+  
 
     $("#benfeitores_search").submit(function(){
 
