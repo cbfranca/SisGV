@@ -21,7 +21,7 @@ class VocacionadosController < ApplicationController
      
         format.pdf do         
           send_data output, :filename => "vocacionado_#{@vocacionado.created_at.strftime("%d/%m/%Y")}.pdf",
-                            :type => "application/pdf"
+                            :content_type => "application/pdf; charset-ISO-8859-1"
                             
         end
       end  
