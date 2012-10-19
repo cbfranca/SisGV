@@ -100,7 +100,7 @@
     </td>
     <td  style="width:190px;">
        <div style="margin-left:-180px;padding-left:30%">
-          <%= f.collection_select(:cidade_id, Cidade.find(:all, :conditions => {:estado_id => @benfeitor.cod_estado}), :id, :nome, {:prompt => "Selecione"}, :class=>"styled2 text_select" , :style=>"width:168px; height:auto;") %>
+      <%= f.text_field(:cidade_id, :class => "estilo_caixa blur", :maxlengh => 255 ,:style => "width: 168px; height: auto;") %>
        </div>
     </td>
   </tr>

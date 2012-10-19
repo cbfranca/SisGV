@@ -84,8 +84,7 @@
             </td>
             <td style="width: 190px; padding-left: 20px">
                 <div style="margin-left: -261px; padding-left: 8%;">
-                    <%= select_tag( :vocacionada_cidade_id, options_from_collection_for_select(Cidade.find(:all, :conditions => {:estado_id => :vocacionada_cod_estado}), :id, :nome) , :prompt => "Selecione",:class=>"styled2 text_select", :style=>"width: 161px;
-                                                height: 18px;")%>
+                <%= text_field_tag(:vocacionada_cidade_id, nil,{:class => "estilo_caixa blur", :style => "width: 161px; height: 18px;"}) %>
                 </div>
             </td>
         </tr>
