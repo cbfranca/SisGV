@@ -9,7 +9,6 @@ background_menu.jpg: background_menu-785b5468da2fbf6aa09556b8cb3ed162.jpg
 bakground_selec_cor.png: bakground_selec_cor-9ce88002a829e3b0bafa409a9cc6866b.png
 bakground_selec_cor2.png: bakground_selec_cor2-02b67860c70a639457b39ee4fee17a08.png
 bg.png: bg-950dd9211deda361846a1729baf6a244.png
-borda_conteudo.png: borda_conteudo-8a74967f30fe933bc5e4476bb26d65f6.png
 cancelar.png: cancelar-e7735614685262cd40fae734cae9d9c8.png
 cross.png: cross-c2651300ae2e326a9727177155b48bf7.png
 editar.png: editar-b662813fac1caed661930c9447468b08.png
@@ -45,5 +44,5 @@ observacao_vocacionadas.js: observacao_vocacionadas-159006c54ad2355740bbab8f50e4
 observacao_vocacionados.js: observacao_vocacionados-f9c0918f2195a31f798f4ecdfb7c6b0f.js
 usuarios.js: usuarios-f3384e4020bfddb16d6587b6dcc43b7c.js
 vocacionados.js: vocacionados-33679ed6e9683ed3232c713b1a9accb5.js
-estilo.css: estilo-1ec2ef0e1f0c9c9d43a0ff7ac9a54ec6.css
+estilo.css: estilo-b342938eb6c409d4ea09fbee9e7c7112.css
 stylesheet.css: stylesheet-0a11ec4fd07e1f75fd338edaf94407c8.css
