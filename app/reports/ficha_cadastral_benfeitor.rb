@@ -33,16 +33,13 @@ class FichaCadastralBenfeitor < Prawn::Document
 
     move_down 15
 
-    if !@benfeitor.cidade_id.nil?      
-      cidade = Cidade.find(@benfeitor.cidade_id).nome
-    end
-
+   
     if !@benfeitor.cod_estado.nil?      
       estado = Estado.find(@benfeitor.cod_estado).nome
     end
 
 
-    text "Endereço: #{@benfeitor.endereco} , #{@benfeitor.bairro}, #{cidade} , #{estado} " , :inline_format => true    
+    text "Endereço: #{@benfeitor.endereco} , #{@benfeitor.bairro}, #{@benfeitor.cidade_id} , #{estado} " , :inline_format => true    
 
     move_down 15
     text "CEP: #{@benfeitor.cep}", :inline_format => true

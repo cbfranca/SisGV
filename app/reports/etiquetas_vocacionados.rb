@@ -36,7 +36,7 @@ class EtiquetasVocacionados < Prawn::Document
       pdf.text voc.nome
       pdf.text voc.endereco
       pdf.text voc.bairro
-      pdf.text Cidade.find(voc.cidade_id).nome  + "   " + Estado.find(voc.cod_estado).nome + "   " +  voc.cep
+      pdf.text voc.cidade_id + "   " + Estado.find(voc.cod_estado).nome + "   " +  voc.cep
       
     end    
   end

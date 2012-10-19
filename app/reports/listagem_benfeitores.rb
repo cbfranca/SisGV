@@ -45,7 +45,7 @@ class ListagemBenfeitores < Prawn::Document
       [ 
         benfeitor.nome , 
         Estado.find(benfeitor.cod_estado ).nome ,
-        Cidade.find(benfeitor.cidade_id ).nome   
+        benfeitor.cidade_id
       ]
       end
    end

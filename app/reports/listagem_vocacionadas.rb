@@ -45,7 +45,7 @@ class ListagemVocacionadas < Prawn::Document
       [ 
         vocacionada.nome , 
         Estado.find(vocacionada.cod_estado ).nome ,
-        Cidade.find(vocacionada.cidade_id ).nome   
+        vocacionada.cidade_id
       ]
       end
    end

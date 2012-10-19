@@ -35,7 +35,7 @@ class EtiquetasBenfeitores < Prawn::Document
       pdf.text benf.nome
       pdf.text benf.endereco
       pdf.text benf.bairro
-      pdf.text Cidade.find(benf.cidade_id).nome  + "   " + Estado.find(benf.cod_estado).nome + "   " +  benf.cep
+      pdf.text benf.cidade_id  + "   " + Estado.find(benf.cod_estado).nome + "   " +  benf.cep
       
     end    
   end

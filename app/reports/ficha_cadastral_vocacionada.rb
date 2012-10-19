@@ -41,15 +41,11 @@ class FichaCadastralVocacionada < Prawn::Document
 
     move_down 15
 
-     if !@vocacionada.cidade_id.nil?      
-      cidade = Cidade.find(@vocacionada.cidade_id).nome
-    end
-
     if !@vocacionada.cod_estado.nil?      
       estado = Estado.find(@vocacionada.cod_estado).nome
     end
 
-    text "Endereço: #{@vocacionada.endereco} , #{@vocacionada.bairro}, #{cidade} , #{estado} " , :inline_format => true    
+    text "Endereço: #{@vocacionada.endereco} , #{@vocacionada.bairro}, #{@vocacionada.cidade_id} , #{estado} " , :inline_format => true    
 
     move_down 15
     text "CEP: #{@vocacionada.cep}", :inline_format => true
