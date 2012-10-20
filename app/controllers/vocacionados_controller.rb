@@ -15,12 +15,12 @@ class VocacionadosController < ApplicationController
   def generate_registration_form
     @vocacionado = Vocacionado.find(params[:id])   
 
-      output = FichaCadastralVocacionado.new.to_pdf(@vocacionado)
+      output = FichaCadastralVocacionado.new(@vocacionado)
 
       respond_to do |format|
-     
+        format.html
         format.pdf do         
-          send_data output, :filename => "vocacionado_#{@vocacionado.created_at.strftime("%d/%m/%Y")}.pdf",
+          send_data output.render, :filename => "vocacionado_#{@vocacionado.created_at.strftime("%d/%m/%Y")}.pdf",
                             :content_type => "application/pdf; charset-ISO-8859-1"
                             
         end
@@ -33,7 +33,7 @@ class VocacionadosController < ApplicationController
     output = EtiquetasVocacionados.new.to_pdf(@vocacionado)
 
     respond_to do |format|
-   
+      format.html
       format.pdf do         
         send_data output, :filename => "etiquetas#{DateTime.now}.pdf",
                           :type => "application/pdf"        
@@ -47,7 +47,7 @@ class VocacionadosController < ApplicationController
     output = ListagemVocacionados.new(@vocacionado)
 
     respond_to do |format|
-   
+      format.html
       format.pdf do         
         send_data output.render, 
                             :filename => "listagem_vocacionados#{DateTime.now}.pdf",

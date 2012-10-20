@@ -2,8 +2,10 @@
 
 class FichaCadastralVocacionada < Prawn::Document
 
-  def initialize()
+  def initialize(vocacionado)
     super() 
+    logo
+    to_pdf(vocacionada)
   end
 
   def logo
@@ -71,7 +73,5 @@ class FichaCadastralVocacionada < Prawn::Document
       move_down 15
       text "Primeiro contato: Ainda não foi feito nenhum contato. ", :inline_format => true
     end
-
-    render
   end
 end

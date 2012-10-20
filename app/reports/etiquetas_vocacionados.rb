@@ -1,7 +1,5 @@
 #encoding: utf-8
-
 #require "prawn/labels"
-
 
 class EtiquetasVocacionados < Prawn::Document
   def initialize()

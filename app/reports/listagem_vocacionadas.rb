@@ -4,7 +4,7 @@ class ListagemVocacionadas < Prawn::Document
   def initialize(vocacionada)
     super(top_margin: 70)
     @vocacionadas = vocacionada
-    to_pdf(vocacionada)
+    to_pdf()
   end
 
   def logo
@@ -50,7 +50,7 @@ class ListagemVocacionadas < Prawn::Document
       end
    end
 
-    def to_pdf(vocacionada)    
+    def to_pdf()    
       report_header
       line_items
     end

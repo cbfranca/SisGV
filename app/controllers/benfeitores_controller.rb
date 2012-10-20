@@ -14,12 +14,12 @@ class BenfeitoresController < ApplicationController
     
     @benfeitor = Benfeitor.find(params[:id])   
 
-      output = FichaCadastralBenfeitor.new.to_pdf(@benfeitor)
+      output = FichaCadastralBenfeitor.new(@benfeitor)
 
       respond_to do |format|
-     
+        format.html
         format.pdf do         
-          send_data output, :filename => "benfeitor#{@benfeitor.created_at.strftime("%d/%m/%Y")}.pdf",
+          send_data output.render, :filename => "benfeitor#{@benfeitor.created_at.strftime("%d/%m/%Y")}.pdf",
                             :type => "application/pdf"                            
         end
       end  
@@ -31,7 +31,7 @@ class BenfeitoresController < ApplicationController
     output = EtiquetasBenfeitores.new.to_pdf(@benfeitor)
 
     respond_to do |format|
-   
+      format.html
       format.pdf do         
         send_data output, :filename => "etiquetas_benfeitor#{DateTime.now}.pdf",
                           :type => "application/pdf"        
@@ -45,7 +45,7 @@ class BenfeitoresController < ApplicationController
     output = ListagemBenfeitores.new(@benfeitor)
 
     respond_to do |format|
-   
+      format.html
       format.pdf do         
         send_data output.render, 
                             :filename => "listagem_benfeitores#{DateTime.now}.pdf",

@@ -4,7 +4,7 @@ class ListagemBenfeitores < Prawn::Document
   def initialize(benfeitor)
     super(top_margin: 70)
     @benfeitores = benfeitor
-    to_pdf(benfeitor)
+    to_pdf()
   end
 
   def logo
@@ -50,7 +50,7 @@ class ListagemBenfeitores < Prawn::Document
       end
    end
 
-    def to_pdf(benfeitor)    
+    def to_pdf()    
       report_header
       line_items
     end

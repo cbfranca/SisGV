@@ -2,8 +2,10 @@
 
 class FichaCadastralBenfeitor < Prawn::Document
 
-  def initialize()
+  def initialize(benfeitor)
     super() 
+    logo
+    to_pdf(benfeitor)
   end
 
   def logo
@@ -15,8 +17,7 @@ class FichaCadastralBenfeitor < Prawn::Document
   def to_pdf(benfeitor)
   
   	@benfeitor = benfeitor
-
-    logo
+    
 
     linhaPath =  "#{Rails.root}/app/assets/images/linha.jpg"
     image linhaPath
@@ -65,7 +66,5 @@ class FichaCadastralBenfeitor < Prawn::Document
       move_down 15
       text "Primeiro contato: Ainda não foi feito nenhum contato. ", :inline_format => true
     end
-
-    render
   end
 end

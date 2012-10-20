@@ -2,8 +2,10 @@
 
 class FichaCadastralVocacionado < Prawn::Document
 
-  def initialize()
+  def initialize(vocacionado)
     super() 
+    logo
+    to_pdf(vocacionado)
   end
 
   def logo
@@ -14,9 +16,7 @@ class FichaCadastralVocacionado < Prawn::Document
 
   def to_pdf(vocacionado)
   
-  	@vocacionado = vocacionado
-
-    logo
+  	@vocacionado = vocacionado    
 
     linhaPath =  "#{Rails.root}/app/assets/images/linha.jpg"
     image linhaPath
@@ -71,7 +71,5 @@ class FichaCadastralVocacionado < Prawn::Document
       move_down 15
       text "Primeiro contato: Ainda não foi feito nenhum contato. ", :inline_format => true
     end
-
-    render
   end
 end
