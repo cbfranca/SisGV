@@ -34,15 +34,6 @@ namespace :deploy do
   end
   after "deploy:setup", "deploy:setup_config"
 
-  desc "Create a symlink for application.css (used by static pages)"
-  task :static, :roles => :web, :except => { :no_release => true } do
-    %w(application.css other.css).each do |asset|
-      file = capture "cd #{shared_path}/assets && ruby -ryaml -e 'p YAML.load_file(\"manifest.yml\")[\"#{asset}\"]'"
-      run "cd #{shared_path}/assets && ln -sf #{file.chomp} #{asset}"
-    end
-  end
-  after "assets:precompile", "assets:static"  
-
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
