@@ -9,7 +9,7 @@ class CreateVocacionados < ActiveRecord::Migration
       t.string :cep
       t.string :complemento_endereco
       t.integer :cod_estado
-      t.integer :cidade_id
+      t.string :cidade_id
       t.string :telefone_residencial
       t.string :celular
       t.string :email
