@@ -49,3 +49,14 @@ namespace :deploy do
   end
   before "deploy", "deploy:check_revision"
 end
+
+namespace :assets do
+  desc "Create a symlink for application.css (used by static pages)"
+  task :static, :roles => :web, :except => { :no_release => true } do
+    %w(application.css other.css).each do |asset|
+      file = capture "cd #{shared_path}/assets && ruby -ryaml -e 'p YAML.load_file(\"manifest.yml\")[\"#{asset}\"]'"
+      run "cd #{shared_path}/assets && ln -sf #{file.chomp} #{asset}"
+    end
+  end
+end
+after "assets:precompile", "assets:static"
