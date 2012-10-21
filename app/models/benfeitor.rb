@@ -9,13 +9,7 @@ class Benfeitor < ActiveRecord::Base
   has_many :doacoes
 
   #Validações
-  validates_presence_of :nome ,
-                        :bairro,                         
-                        :cep, 
-                        :cidade_id, 
-                        :cod_estado,                                                 
-                        :endereco, 
-                        :nascimento, 
+  validates_presence_of :nome ,                        
   						:message => "inválido. Favor preencher corretamente."     
   
   scope :with_name, lambda {|parameter| where("nome like ?", "%#{parameter}%")}     
