@@ -1,1 +1,6 @@
 $("#area_tabela").html("<%= escape_javascript(render("grid_observacao_vocacionadas")) %>");
+$('#show_spinner_image').hide();
+$('.pagination a').click(function(){
+	$('#show_spinner_image').show();
+	$('.pagination a').attr('data-remote','true');
+});

@@ -1,7 +1,14 @@
+<div id="show_spinner_image" style="display: none">
+    <%= image_tag('loader.gif', :border => "0", :style => "float:left;") %>
+</div>
 <table style="width:600px;" width="872" height="30" class="textof" border="0" cellpadding="6" cellspacing="0">
 	<% @observacao_vocacionadas.each do |observacao_vocacionada| %>
 	  <tr>
-		<td><%= observacao_vocacionada.descricao[0..60] %></td>
+		<% if observacao_vocacionada.descricao.length > 23 %>        
+	        <td><%= observacao_vocacionada.descricao[0..23] + '...' %></td>
+	    <% else %>
+	        <td><%= observacao_vocacionada.descricao %></td>
+	    <% end %>
 	    <td>&nbsp;</td>
 		<td>Ocorrido em <%= l observacao_vocacionada.data, :format => :default %></td> 
 		<td  class="cursor">		

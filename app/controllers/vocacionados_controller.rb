@@ -108,8 +108,13 @@ class VocacionadosController < ApplicationController
   # DELETE /vocacionados/1
   # DELETE /vocacionados/1.json
   def destroy
-    @vocacionado = Vocacionado.find(params[:id])
-    @vocacionado.destroy
+    if ObservacaoVocacionado.where("vocacionado_id = #{params[:id]}").count > 0
+        flash[:error_delete] = "Este vocacionado possui observações cadastradas. Primeiro é preciso excluí-las!"
+    else
+        @vocacionado = Vocacionado.find(params[:id])
+        @vocacionado.destroy
+        flash[:notice] = "Vocacionado excluido com sucesso!"
+    end    
 
     respond_to do |format|
       format.html { redirect_to vocacionados_url }

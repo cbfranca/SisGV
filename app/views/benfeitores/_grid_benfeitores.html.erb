@@ -1,10 +1,15 @@
-<table style="width:600px;" class="textof" border="0" cellpadding="6" cellspacing="0">    
-    <tr>
-        <%= flash_message %>
-    <tr>
+<%= flash_message %>
+<div id="show_spinner_image" style="display: none">
+    <%= image_tag('loader.gif', :border => "0", :style => "float:left;") %>
+</div>
+<table style="width:610px;" class="textof" border="0" cellpadding="6" cellspacing="0">        
   <% @benfeitores.each do |benfeitor| %>
     <tr>        
-        <td><%= benfeitor.nome %></td>
+        <% if benfeitor.nome.length > 23 %>        
+            <td><%= benfeitor.nome[0..23] + '...' %></td>
+        <% else %>
+            <td><%= benfeitor.nome %></td>
+        <% end %>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>        
         <td>Cadastrado em <%= l benfeitor.created_at, :format => :default %></td>    
         <% if benfeitor.primeiro_contato.nil? %>
@@ -21,6 +26,9 @@
         </td>      
         <td class="cursor">                
             <%= link_to image_tag("money_add.png", :border => "0"), {:controller => "doacoes",:action => "index", :benfeitor => benfeitor},:title => "Gerenciar as doações deste benfeitor"  %>
+        </td>
+         <td class="cursor">
+            <%= link_to image_tag("excluir_icon.png"), benfeitor, method: :delete, data: { confirm: 'Deseja mesmo excluir esse benfeitor?' } , :title => "Excluir este benfeitor" %>
         </td>
     </tr>                 
 <% end %>

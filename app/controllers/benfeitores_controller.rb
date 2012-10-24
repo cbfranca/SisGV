@@ -105,8 +105,13 @@ class BenfeitoresController < ApplicationController
   # DELETE /benfeitores/1
   # DELETE /benfeitores/1.json
   def destroy
-    @benfeitor = Benfeitor.find(params[:id])
-    @benfeitor.destroy
+    if Doacao.where("benfeitor_id = #{params[:id]}").count > 0
+        flash[:error_delete] = "Este benfeitor possui doações cadastradas. Primeiro é preciso excluí-las!"
+    else
+      @benfeitor = Benfeitor.find(params[:id])
+      @benfeitor.destroy
+      flash[:notice] = "Benfeitor excluido com sucesso!"
+    end
 
     respond_to do |format|
       format.html { redirect_to benfeitores_url }

@@ -13,18 +13,18 @@ class EtiquetasVocacionadas < Prawn::Document
 
     @items = []
 
+   #define a custom label type
     Prawn::Labels.types = {
       "Etiquetas" => {
-        "paper_size"    => "A4",
-        "top_margin"    => 12.07,
-        "bottom_margin" => 0,
-        "left_margin"   => 6.000,
-        "right_margin"  => 6.000,
+        "paper_size"    => "LETTER",
+        "top_margin"    => 36,
+        "bottom_margin" => 36,
+        "left_margin"   => 11,
+        "right_margin"  => 11,
         "columns"       => 2,
-        "rows"          => 8,
-        "column_gutter" => 7.087,
-        "row_gutter"    => 0
-
+        "rows"          => 10,
+        "column_gutter" => 10,
+        "row_gutter"    => 0        
     }}
     
     @vocacionadas.each do |item|
@@ -34,8 +34,8 @@ class EtiquetasVocacionadas < Prawn::Document
     Prawn::Labels.render(@items, :type => "Etiquetas") do |pdf, voc|
       pdf.text voc.nome
       pdf.text voc.endereco
-      pdf.text voc.bairro
-      pdf.text voc.cidade_id  + "   " + Estado.find(voc.cod_estado).nome + "   " +  voc.cep      
+      pdf.text voc.bairro + "  " + voc.cidade_id  + "   " + Estado.find(voc.cod_estado).nome + "   " +  voc.cep      
+      
     end    
   end
 end

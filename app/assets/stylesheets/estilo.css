@@ -343,6 +343,20 @@ input.blur {
 	color: #c00;
 }
 
+
+.error_delete {
+	width: 548px;
+  	text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 25px;
+    font-size: 12px;
+    margin: 5px 5px 7px;
+    margin-bottom: 0px;
+	border: 1px solid #c68484;
+	background: #fcc url(cross.png) no-repeat 5px center;
+	color: #c00;
+}
+
 .warning {
 	width: 420px;
   	text-align: left;
@@ -392,4 +406,14 @@ a:visited {
 
 img {
    border: none;
+}
+
+#show_spinner_image {
+	position: fixed;
+	top: 48%;
+	left: 60%;
+	margin: -100px 0 0 -100px;
+	text-indent: 250px;
+	white-space: nowrap;;
+	overflow: hidden;
 }

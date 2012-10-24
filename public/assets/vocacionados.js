@@ -1,1 +1,34 @@
-$(document).ready(function(){$(function(){$("#vocacionado_telefone_residencial").mask("(999) 9999-9999"),$("#vocacionado_celular").mask("(999) 9999-9999"),$("#vocacionado_cep").mask("99999-999")}),$(function(){$("#area_tabela .pagination a").live("click",function(){return $.getScript(this.href),!1})}),$("#vocacionado_cod_estado").change(function(){$.getJSON("/estados/"+$(this).val()+"/cidades.json",function(e){$("#vocacionado_cidade_id").empty(),$("#vocacionado_cidade_id").append(new Option("Selecione","",!0,!0)),$.each(e,function(e,t){$("#vocacionado_cidade_id").append('<option value="'+t.id+'">'+t.nome+"</option>")})})}),$("#vocacionados_search").submit(function(){return $.get(this.action,$(this).serialize(),null,"script"),!1})});
+  $(document).ready(function() {
+
+      //  $(function(){ 
+      //     // find all the input elements with title attributes
+      //   $('input[title!=""]').hint();
+      // });
+       
+    // $(function(){
+    //   $('#vocacionado_nascimento').datepicker().datepicker('option', 'dateformat', 'dd/mm/yy');      
+    // })
+
+  $(function(){
+      $('#vocacionado_telefone_residencial').mask("(999) 9999-9999");
+      $('#vocacionado_celular').mask("(999) 9999-9999");
+      $('#vocacionado_cep').mask("99999-999");
+    });
+
+    $(function () {  
+      $('#area_tabela .pagination a').click(function()
+        {
+          $('#show_spinner_image').show();
+          $('#area_tabela .pagination a').attr('data-remote','true');
+        }  
+      );  
+    });
+ 
+
+    $("#vocacionados_search").submit(function(){
+
+      $.get(this.action, $(this).serialize(), null, "script");      
+      return false;      
+   
+    });
+  });

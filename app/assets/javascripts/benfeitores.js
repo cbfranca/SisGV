@@ -6,14 +6,15 @@
       $('#benfeitor_cep').mask("99999-999");
     });
 
+   
     $(function () {  
-      $('#area_tabela .pagination a').live('click',
-        function () {  
-          $.getScript(this.href);  
-          return false;  
+      $('#area_tabela .pagination a').click(function()
+        {
+          $('#show_spinner_image').show();
+          $('#area_tabela .pagination a').attr('data-remote','true');
         }  
       );  
-    });   
+    });
   
 
     $("#benfeitores_search").submit(function(){
