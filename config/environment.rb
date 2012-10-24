@@ -6,3 +6,4 @@ SisGV::Application.initialize!
 
 
 ENV['RAILS_ENV'] ||= 'production'
+#ENV['RAILS_ENV'] ||= 'development'

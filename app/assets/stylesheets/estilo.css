@@ -410,8 +410,8 @@ img {
 
 #show_spinner_image {
 	position: fixed;
-	top: 345%;
-	left: 722%;
+	top: 345px;
+	left: 722px;
 	margin: -100px 0 0 -100px;
 	text-indent: 250px;
 	white-space: nowrap;;
