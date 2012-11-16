@@ -9648,13 +9648,6 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 })( jQuery );
   $(document).ready(function() {
-
-  $(function(){
-      $('#benfeitor_telefone_residencial').mask("(999) 9999-9999");
-      $('#benfeitor_celular').mask("(999) 9999-9999");
-      $('#benfeitor_cep').mask("99999-999");
-    });
-
    
     $(function () {  
       $('#area_tabela .pagination a').click(function()
@@ -9974,12 +9967,6 @@ $(document).ready(function() {
  });
   $(document).ready(function() {
 
-  $(function(){
-      $('#vocacionada_telefone_residencial').mask("(999) 9999-9999");
-      $('#vocacionada_celular').mask("(999) 9999-9999");
-      $('#vocacionada_cep').mask("99999-999");
-    });
-
       $(function () {  
       $('#area_tabela .pagination a').click(function()
         {
@@ -9997,21 +9984,6 @@ $(document).ready(function() {
     });
   });
   $(document).ready(function() {
-
-      //  $(function(){ 
-      //     // find all the input elements with title attributes
-      //   $('input[title!=""]').hint();
-      // });
-       
-    // $(function(){
-    //   $('#vocacionado_nascimento').datepicker().datepicker('option', 'dateformat', 'dd/mm/yy');      
-    // })
-
-  $(function(){
-      $('#vocacionado_telefone_residencial').mask("(999) 9999-9999");
-      $('#vocacionado_celular').mask("(999) 9999-9999");
-      $('#vocacionado_cep').mask("99999-999");
-    });
 
     $(function () {  
       $('#area_tabela .pagination a').click(function()
