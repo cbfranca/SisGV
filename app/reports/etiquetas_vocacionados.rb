@@ -12,22 +12,10 @@ class EtiquetasVocacionados < Prawn::Document
 
     @items = []
   
+  Prawn::Labels.types = 'config/pimaco_labels.yml'
+  #Prawn::Labels.types = File.join(File.expand_path("config/pimaco_labels.yml"))
 
-    #define a custom label type
-    Prawn::Labels.types = {
-      "PIMACO_6081" => {
-        "paper_size"    => "LETTER",
-        # "top_margin"    => 36,
-        # "bottom_margin" => 36,
-        # "left_margin"   => 11,
-        # "right_margin"  => 11,
-         "columns"       => 2,
-         "rows"          => 10,
-        # "column_gutter" => 10,
-        # "row_gutter"    => 0        
-    }}
-
-    Prawn::Labels.render(@vocacionados, :type => "PIMACO_6081") do |pdf, voc|
+    Prawn::Labels.render(@vocacionados, :type => "pimaco_6081") do |pdf, voc|
       pdf.text voc.nome
       pdf.text voc.endereco
       pdf.text voc.bairro + "   " + voc.cidade_id + "   " + Estado.find(voc.cod_estado).nome + "   " +  voc.cep               

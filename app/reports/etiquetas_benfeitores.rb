@@ -12,26 +12,17 @@ class EtiquetasBenfeitores < Prawn::Document
   	@benfeitores = benfeitor
 
     @items = []
+  
+  Prawn::Labels.types = 'config/pimaco_labels.yml'        
 
-  #define a custom label type
-    Prawn::Labels.types = {
-      "Etiquetas" => {
-        "paper_size"    => "LETTER",
-        "top_margin"    => 36,
-        "bottom_margin" => 36,
-        "left_margin"   => 11,
-        "right_margin"  => 11,
-        "columns"       => 2,
-        "rows"          => 10,
-        "column_gutter" => 10,
-        "row_gutter"    => 0        
-    }}
-        
+  #Prawn::Labels.types = File.join(File.expand_path("config/pimaco_labels.yml"))
+
+
     @benfeitores.each do |item|
       @items << item
     end
 
-    Prawn::Labels.render(@items, :type => "Etiquetas") do |pdf, benf|
+    Prawn::Labels.render(@items, :type => "pimaco_6081") do |pdf, benf|
       pdf.text benf.nome
       pdf.text benf.endereco
       pdf.text benf.bairro + "  " + benf.cidade_id  + "   " + Estado.find(benf.cod_estado).nome + "   " +  benf.cep      

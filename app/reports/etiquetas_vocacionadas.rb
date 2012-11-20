@@ -12,26 +12,14 @@ class EtiquetasVocacionadas < Prawn::Document
   	@vocacionadas = vocacionada
 
     @items = []
-
-   #define a custom label type
-    Prawn::Labels.types = {
-      "Etiquetas" => {
-        "paper_size"    => "LETTER",
-        "top_margin"    => 36,
-        "bottom_margin" => 36,
-        "left_margin"   => 11,
-        "right_margin"  => 11,
-        "columns"       => 2,
-        "rows"          => 10,
-        "column_gutter" => 10,
-        "row_gutter"    => 0        
-    }}
     
     @vocacionadas.each do |item|
       @items << item
     end
 
-    Prawn::Labels.render(@items, :type => "Etiquetas") do |pdf, voc|
+    Prawn::Labels.types = 'config/pimaco_labels.yml' 
+
+    Prawn::Labels.render(@items, :type => "pimaco_6081") do |pdf, voc|
       pdf.text voc.nome
       pdf.text voc.endereco
       pdf.text voc.bairro + "  " + voc.cidade_id  + "   " + Estado.find(voc.cod_estado).nome + "   " +  voc.cep      
