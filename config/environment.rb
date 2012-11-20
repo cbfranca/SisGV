@@ -5,5 +5,5 @@ require File.expand_path('../application', __FILE__)
 SisGV::Application.initialize!
 
 
-#ENV['RAILS_ENV'] ||= 'production'
-ENV['RAILS_ENV'] ||= 'development'
+ENV['RAILS_ENV'] ||= 'production'
+#ENV['RAILS_ENV'] ||= 'development'
