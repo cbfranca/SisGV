@@ -3,10 +3,9 @@ pimaco_6081:
   paper_size: LETTER
   top_margin: 36
   bottom_margin: 36
-  left_margin: 11.3
-  right_margin: 11.3
+  left_margin: 14
+  right_margin: 18
   columns: 2
   rows: 10
-  column_gutter: 13.6
+  column_gutter: 23
   row_gutter: 0
-

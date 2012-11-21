@@ -78,7 +78,6 @@ SisGV::Application.routes.draw do
   match "generate_list" => "benfeitores#generate_list"
   match "generate_registration_form" => "benfeitores#generate_registration_form"
 
-
   match "login" => "login#login"
   match "logout" => "login#logout"
 end

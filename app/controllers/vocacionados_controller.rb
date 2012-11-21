@@ -11,7 +11,6 @@ class VocacionadosController < ApplicationController
     session[:filtro_busca] = @vocacionadoFull
   end
 
-
   def generate_registration_form
     @vocacionado = Vocacionado.find(params[:id])   
 
