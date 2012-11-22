@@ -10,23 +10,25 @@ class Benfeitor < ActiveRecord::Base
 
   #Validações
   validates_presence_of :nome ,                        
-  						:message => "inválido. Favor preencher corretamente."     
-  
-  scope :with_name, lambda {|parameter| where("nome like ?", "%#{parameter}%")}     
-  scope :with_birthday_month, lambda {|parameter| where("month(nascimento) = ?", parameter)}
-  scope :with_neighborhood, lambda {|parameter| where("bairro = ?", parameter)}
-  scope :benfeitor_cod_estado, lambda {|parameter| where("cod_estado = ?", parameter)}  
-  scope :benfeitor_cidade_id, lambda {|parameter| where("cidade_id like ?", "%#{parameter}%")}     
-  scope :with_birthday, lambda {|parameter| where(" month(now()) =  month(nascimento)") if parameter.present? }
-  scope :with_dead_file, lambda {|parameter| where(" ativo = ?", 0) if parameter.present? }
+  						:message => "inválido. Favor preencher corretamente."   
 
-  def self.search(parameters)
-    benfeitor_query = self.scoped
-    parameters.each do |parameter, value|
-      if not value.empty? and benfeitor_query.respond_to? parameter
-       benfeitor_query = benfeitor_query.send(parameter, value) 
-      end
-    end
-    benfeitor_query
-  end  			
+
+  def self.search(params)
+     benfeitores = Benfeitor.order(:nome)
+     benfeitores = benfeitores.where("nome like ?", "%#{params[:with_name]}%") if params[:with_name].present?
+     benfeitores = benfeitores.where("bairro like ?", "%#{params[:with_neighborhood]}%") if params[:with_neighborhood].present?
+     benfeitores = benfeitores.where("cod_estado = ?", "#{params[:benfeitor_cod_estado]}") if params[:benfeitor_cod_estado].present?
+     benfeitores = benfeitores.where("month(nascimento) = ?", "#{params[:with_birthday_month]}") if params[:with_birthday_month].present?
+     benfeitores = benfeitores.where("cidade_id like ?", "%#{params[:benfeitor_cidade_id]}%") if params[:benfeitor_cidade_id].present?
+     benfeitores = benfeitores.where("month(now()) =  month(nascimento)") if params[:with_birthday]
+     
+     if params[:with_dead_file].blank?
+        benfeitores = benfeitores.where("ativo = 1")
+     else
+        benfeitores = benfeitores.where("ativo <> ?", "#{params[:with_dead_file]}") 
+     end
+     
+     benfeitores
+  end
+
 end

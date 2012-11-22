@@ -1,7 +1,7 @@
 # Pimaco 6182
 pimaco_6081:
   paper_size: LETTER
-  top_margin: 36
+  top_margin: 37
   bottom_margin: 36
   left_margin: 14
   right_margin: 18

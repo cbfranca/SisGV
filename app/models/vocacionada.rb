@@ -13,22 +13,23 @@ class Vocacionada < ActiveRecord::Base
   						:message => "inválido. Favor preencher corretamente."
 
 
-  scope :with_name, lambda {|parameter| where("nome like ?", "%#{parameter}%")}     
-  scope :with_birthday_month, lambda {|parameter| where("month(nascimento) = ?", parameter)}
-  scope :with_neighborhood, lambda {|parameter| where("bairro = ?", parameter)}
-  scope :vocacionado_cod_estado, lambda {|parameter| where("cod_estado = ?", parameter)}  
-  scope :vocacionada_cidade_id, lambda {|parameter| where("cidade_id like ?", "%#{parameter}%")}     
-  scope :with_birthday, lambda {|parameter| where(" month(now()) =  month(nascimento)") if parameter.present? }
-  scope :with_dead_file, lambda {|parameter| where(" ativo = ?", 0) if parameter.present? }
+  def self.search(params)
+     vocacionadas = Vocacionada.order(:nome)
+     vocacionadas = vocacionadas.where("nome like ?", "%#{params[:with_name]}%") if params[:with_name].present?
+     vocacionadas = vocacionadas.where("bairro like ?", "%#{params[:with_neighborhood]}%") if params[:with_neighborhood].present?
+     vocacionadas = vocacionadas.where("cod_estado = ?", "#{params[:vocacionada_cod_estado]}") if params[:vocacionada_cod_estado].present?
+     vocacionadas = vocacionadas.where("month(nascimento) = ?", "#{params[:with_birthday_month]}") if params[:with_birthday_month].present?
+     vocacionadas = vocacionadas.where("cidade_id like ?", "%#{params[:vocacionada_cidade_id]}%") if params[:vocacionada_cidade_id].present?
+     vocacionadas = vocacionadas.where("month(now()) =  month(nascimento)") if params[:with_birthday]
+     vocacionadas = vocacionadas.where("ativo <> ?", "#{params[:with_dead_file]}") if params[:with_dead_file]
 
-  def self.search(parameters)
-    vocacionada_query = self.scoped
-    parameters.each do |parameter, value|
-      if not value.empty? and vocacionada_query.respond_to? parameter
-       vocacionada_query = vocacionada_query.send(parameter, value) 
-      end
-    end
-    vocacionada_query
-  end  
+     if params[:with_dead_file].blank?
+        vocacionadas = vocacionadas.where("ativo = 1")
+     else
+        vocacionadas = vocacionadas.where("ativo <> ?", "#{params[:with_dead_file]}")
+     end
+
+     vocacionadas
+  end
 
 end
