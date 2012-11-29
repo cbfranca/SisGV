@@ -69,7 +69,7 @@ class ObservacaoVocacionadosController < ApplicationController
 
     respond_to do |format|
       if @observacao_vocacionado.update_attributes(params[:observacao_vocacionado])
-        format.html { rredirect_to :action => :index, :vocacionado => @observacao_vocacionado.vocacionado_id}
+        format.html { redirect_to :action => :index, :vocacionado => @observacao_vocacionado.vocacionado_id}
         flash[:notice] = "Registro alterado com sucesso!"
       else
         format.html { render action: "edit", :vocacionado => params[:vocacionado]}
